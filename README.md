@@ -1,2 +1,3 @@
 # time_util
-An Aiken utility library to help comparing time intervals
+
+A utility library to help comparing time intervals.
