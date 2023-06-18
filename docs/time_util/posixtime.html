@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)"/>
     <link rel="icon" type="image/svg+xml" sizes="any" href="../favicon.svg"/>
-    <link rel="stylesheet" href="../css/index.css?v=1.0.8-alpha" type="text/css"/>
-    <link id="syntax-theme" rel="stylesheet" href="../css/atom-one-light.min.css?v=1.0.8-alpha"/>
+    <link rel="stylesheet" href="../css/index.css?v=1.0.10-alpha" type="text/css"/>
+    <link id="syntax-theme" rel="stylesheet" href="../css/atom-one-light.min.css?v=1.0.10-alpha"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -245,6 +245,14 @@
   
   <li><a href="#end_of">end_of</a></li>
   
+  <li><a href="#ends_after">ends_after</a></li>
+  
+  <li><a href="#ends_after_or_at">ends_after_or_at</a></li>
+  
+  <li><a href="#ends_before">ends_before</a></li>
+  
+  <li><a href="#ends_before_or_at">ends_before_or_at</a></li>
+  
   <li><a href="#is_after">is_after</a></li>
   
   <li><a href="#is_after_or_at">is_after_or_at</a></li>
@@ -254,6 +262,14 @@
   <li><a href="#is_before_or_at">is_before_or_at</a></li>
   
   <li><a href="#start_of">start_of</a></li>
+  
+  <li><a href="#starts_after">starts_after</a></li>
+  
+  <li><a href="#starts_after_or_at">starts_after_or_at</a></li>
+  
+  <li><a href="#starts_before">starts_before</a></li>
+  
+  <li><a href="#starts_before_or_at">starts_before_or_at</a></li>
   
 </ul>
 
@@ -271,20 +287,28 @@ internal function to handle all logic variations at the cost of memory and
 CPU usage.</p>
 <p>Use <code>time_util/cheap/posixtime</code> instead for cheaper memory and CPU usage.</p>
 <pre><code>time_util/posixtime:
-┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-│ PASS [mem: 2803844, cpu: 1095244947] interval_is_after_deadline
-│ PASS [mem: 2799040, cpu: 1093754563] interval_is_after_or_at_deadline
-│ PASS [mem: 2792048, cpu: 1090207221] interval_is_before_deadline
-│ PASS [mem: 2787244, cpu: 1088716837] interval_is_before_or_at_deadline
-┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
+┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+│ PASS [mem: 2803844, cpu: 1095244947] interval_starts_after_deadline
+│ PASS [mem: 2799040, cpu: 1093754563] interval_starts_after_or_at_deadline
+│ PASS [mem: 2778634, cpu: 1088643387] interval_starts_before_deadline
+│ PASS [mem: 2773830, cpu: 1087153003] interval_starts_before_or_at_deadline
+│ PASS [mem: 2766838, cpu: 1083605661] interval_ends_after_deadline
+│ PASS [mem: 2762034, cpu: 1082115277] interval_ends_after_or_at_deadline
+│ PASS [mem: 2792048, cpu: 1090207221] interval_ends_before_deadline
+│ PASS [mem: 2787244, cpu: 1088716837] interval_ends_before_or_at_deadline
+┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 
 time_util/cheap/posixtime:
-┍━ test_cheap_posixtime_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-│ PASS [mem: 1209662, cpu:  463148119] interval_is_after_deadline
-│ PASS [mem: 1204858, cpu:  461657735] interval_is_after_or_at_deadline
-│ PASS [mem: 1209662, cpu:  463148119] interval_is_before_deadline
-│ PASS [mem: 1204858, cpu:  461657735] interval_is_before_or_at_deadline
-┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
+┍━ test_cheap_posixtime_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+│ PASS [mem: 1209662, cpu:  463148119] interval_starts_after_deadline
+│ PASS [mem: 1204858, cpu:  461657735] interval_starts_after_or_at_deadline
+│ PASS [mem: 1197652, cpu:  459582559] interval_starts_before_deadline
+│ PASS [mem: 1192848, cpu:  458092175] interval_starts_before_or_at_deadline
+│ PASS [mem: 1197652, cpu:  459582559] interval_ends_after_deadline
+│ PASS [mem: 1192848, cpu:  458092175] interval_ends_after_or_at_deadline
+│ PASS [mem: 1209662, cpu:  463148119] interval_ends_before_deadline
+│ PASS [mem: 1204858, cpu:  461657735] interval_ends_before_or_at_deadline
+┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 </code></pre>
 
 
@@ -323,6 +347,180 @@ end_of(between(10, 5)).bound_type == Finite(10)
   
   <div class="member">
     <div class="member-name">
+      <h2 id="ends_after"><pre class="hljs language-aiken">ends_after(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>after</strong> the specified <code>PosixTime</code></p>
+<pre><code>after(4) |&gt; ends_after(5) == True
+after(5) |&gt; ends_after(5) == True
+after(6) |&gt; ends_after(5) == True
+strictly_after(3) |&gt; ends_after(5) == True
+strictly_after(4) |&gt; ends_after(5) == True
+strictly_after(5) |&gt; ends_after(5) == True
+before(6) |&gt; ends_after(5) == True
+strictly_before(7) |&gt; ends_after(5) == True
+between(3, 6) |&gt; ends_after(5) == True
+between(4, 7) |&gt; ends_after(5) == True
+between(5, 8) |&gt; ends_after(5) == True
+between(6, 9) |&gt; ends_after(5) == True
+strictly_between(4, 7) |&gt; ends_after(5) == True
+strictly_between(5, 8) |&gt; ends_after(5) == True
+
+// negative cases:
+before(4) |&gt; ends_after(5) == False
+strictly_before(5) |&gt; ends_after(5) == False
+between(1, 4) |&gt; ends_after(5) == False
+strictly_between(2, 5) |&gt; ends_after(5) == False
+
+// interval ends AT deadline:
+before(5) |&gt; ends_after(5) == False
+strictly_before(6) |&gt; ends_after(5) == False
+between(2, 5) |&gt; ends_after(5) == False
+strictly_between(3, 6) |&gt; ends_after(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="ends_after_or_at"><pre class="hljs language-aiken">ends_after_or_at(
+  some_interval: Interval&lt;PosixTime&gt;,
+  deadline: PosixTime,
+) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>after-or-at</strong> the specified <code>PosixTime</code></p>
+<pre><code>after(4) |&gt; ends_after_or_at(5) == True
+after(5) |&gt; ends_after_or_at(5) == True
+after(6) |&gt; ends_after_or_at(5) == True
+strictly_after(3) |&gt; ends_after_or_at(5) == True
+strictly_after(4) |&gt; ends_after_or_at(5) == True
+strictly_after(5) |&gt; ends_after_or_at(5) == True
+before(6) |&gt; ends_after_or_at(5) == True
+strictly_before(7) |&gt; ends_after_or_at(5) == True
+between(3, 6) |&gt; ends_after_or_at(5) == True
+between(4, 7) |&gt; ends_after_or_at(5) == True
+between(5, 8) |&gt; ends_after_or_at(5) == True
+between(6, 9) |&gt; ends_after_or_at(5) == True
+strictly_between(4, 7) |&gt; ends_after_or_at(5) == True
+strictly_between(5, 8) |&gt; ends_after_or_at(5) == True
+
+// interval ends AT deadline:
+before(5) |&gt; ends_after_or_at(5) == True
+strictly_before(6) |&gt; ends_after_or_at(5) == True
+between(2, 5) |&gt; ends_after_or_at(5) == True
+strictly_between(3, 6) |&gt; ends_after_or_at(5) == True
+
+// negative cases:
+before(4) |&gt; ends_after_or_at(5) == False
+strictly_before(5) |&gt; ends_after_or_at(5) == False
+between(1, 4) |&gt; ends_after_or_at(5) == False
+strictly_between(2, 5) |&gt; ends_after_or_at(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="ends_before"><pre class="hljs language-aiken">ends_before(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>before</strong> the specified <code>PosixTime</code></p>
+<pre><code>before(4) |&gt; ends_before(5) == True
+strictly_before(5) |&gt; ends_before(5) == True
+between(1, 4) |&gt; ends_before(5) == True
+strictly_between(2, 5) |&gt; ends_before(5) == True
+
+// negative cases:
+after(4) |&gt; ends_before(5) == False
+after(5) |&gt; ends_before(5) == False
+after(6) |&gt; ends_before(5) == False
+strictly_after(3) |&gt; ends_before(5) == False
+strictly_after(4) |&gt; ends_before(5) == False
+strictly_after(5) |&gt; ends_before(5) == False
+before(6) |&gt; ends_before(5) == False
+strictly_before(7) |&gt; ends_before(5) == False
+between(3, 6) |&gt; ends_before(5) == False
+between(4, 7) |&gt; ends_before(5) == False
+between(5, 8) |&gt; ends_before(5) == False
+between(6, 9) |&gt; ends_before(5) == False
+strictly_between(4, 7) |&gt; ends_before(5) == False
+strictly_between(5, 8) |&gt; ends_before(5) == False
+
+// interval ends AT deadline:
+before(5) |&gt; ends_before(5) == False
+strictly_before(6) |&gt; ends_before(5) == False
+between(2, 5) |&gt; ends_before(5) == False
+strictly_between(3, 6) |&gt; ends_before(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="ends_before_or_at"><pre class="hljs language-aiken">ends_before_or_at(
+  some_interval: Interval&lt;PosixTime&gt;,
+  deadline: PosixTime,
+) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>before-or-at</strong> the specified <code>PosixTime</code></p>
+<pre><code>before(4) |&gt; ends_before_or_at(5) == True
+strictly_before(5) |&gt; ends_before_or_at(5) == True
+between(1, 4) |&gt; ends_before_or_at(5) == True
+strictly_between(2, 5) |&gt; ends_before_or_at(5) == True
+
+// interval ends AT deadline:
+before(5) |&gt; ends_before_or_at(5) == True
+strictly_before(6) |&gt; ends_before_or_at(5) == True
+between(2, 5) |&gt; ends_before_or_at(5) == True
+strictly_between(3, 6) |&gt; ends_before_or_at(5) == True
+
+// negative cases:
+after(4) |&gt; ends_before_or_at(5) == False
+after(5) |&gt; ends_before_or_at(5) == False
+after(6) |&gt; ends_before_or_at(5) == False
+strictly_after(3) |&gt; ends_before_or_at(5) == False
+strictly_after(4) |&gt; ends_before_or_at(5) == False
+strictly_after(5) |&gt; ends_before_or_at(5) == False
+before(6) |&gt; ends_before_or_at(5) == False
+strictly_before(7) |&gt; ends_before_or_at(5) == False
+between(3, 6) |&gt; ends_before_or_at(5) == False
+between(4, 7) |&gt; ends_before_or_at(5) == False
+between(5, 8) |&gt; ends_before_or_at(5) == False
+between(6, 9) |&gt; ends_before_or_at(5) == False
+strictly_between(4, 7) |&gt; ends_before_or_at(5) == False
+strictly_between(5, 8) |&gt; ends_before_or_at(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
       <h2 id="is_after"><pre class="hljs language-aiken">is_after(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
       
       <!-- TODO: support source linking
@@ -332,34 +530,8 @@ end_of(between(10, 5)).bound_type == Finite(10)
       -->
       
     </div>
-    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after</strong> the specified <code>PosixTime</code></p>
-<pre><code>after(6) |&gt; is_after(5) == True
-between(6, 9) |&gt; is_after(5) == True
-strictly_after(5) |&gt; is_after(5) == True
-strictly_between(5, 8) |&gt; is_after(5) == True
-
-// negative cases:
-after(4) |&gt; is_after(5) == False
-strictly_after(3) |&gt; is_after(5) == False
-before(4) |&gt; is_after(5) == False
-before(5) |&gt; is_after(5) == False
-before(6) |&gt; is_after(5) == False
-strictly_before(5) |&gt; is_after(5) == False
-strictly_before(6) |&gt; is_after(5) == False
-strictly_before(7) |&gt; is_after(5) == False
-between(1, 4) |&gt; is_after(5) == False
-between(2, 5) |&gt; is_after(5) == False
-between(3, 6) |&gt; is_after(5) == False
-between(4, 7) |&gt; is_after(5) == False
-strictly_between(2, 5) |&gt; is_after(5) == False
-strictly_between(3, 6) |&gt; is_after(5) == False
-
-// interval starts AT deadline:
-after(5) |&gt; is_after(5) == False
-between(5, 8) |&gt; is_after(5) == False
-strictly_after(4) |&gt; is_after(5) == False
-strictly_between(4, 7) |&gt; is_after(5) == False
-</code></pre>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after</strong> the specified <code>PosixTime</code>.
+This function is an alias for <code>starts_after</code>.</p>
 </div>
   </div>
   
@@ -374,34 +546,8 @@ strictly_between(4, 7) |&gt; is_after(5) == False
       -->
       
     </div>
-    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after-or-at</strong> the specified <code>PosixTime</code></p>
-<pre><code>after(6) |&gt; is_after_or_at(5) == True
-strictly_after(5) |&gt; is_after_or_at(5) == True
-between(6, 9) |&gt; is_after_or_at(5) == True
-strictly_between(5, 8) |&gt; is_after_or_at(5) == True
-
-// interval starts AT deadline:
-after(5) |&gt; is_after_or_at(5) == True
-strictly_after(4) |&gt; is_after_or_at(5) == True
-between(5, 8) |&gt; is_after_or_at(5) == True
-strictly_between(4, 7) |&gt; is_after_or_at(5) == True
-
-// negative cases:
-after(4) |&gt; is_after_or_at(5) == False
-strictly_after(3) |&gt; is_after_or_at(5) == False
-before(4) |&gt; is_after_or_at(5) == False
-before(5) |&gt; is_after_or_at(5) == False
-before(6) |&gt; is_after_or_at(5) == False
-strictly_before(5) |&gt; is_after_or_at(5) == False
-strictly_before(6) |&gt; is_after_or_at(5) == False
-strictly_before(7) |&gt; is_after_or_at(5) == False
-between(1, 4) |&gt; is_after_or_at(5) == False
-between(2, 5) |&gt; is_after_or_at(5) == False
-between(3, 6) |&gt; is_after_or_at(5) == False
-between(4, 7) |&gt; is_after_or_at(5) == False
-strictly_between(2, 5) |&gt; is_after_or_at(5) == False
-strictly_between(3, 6) |&gt; is_after_or_at(5) == False
-</code></pre>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after-or-at</strong> the specified <code>PosixTime</code>.
+This function is an alias for <code>starts_after_or_at</code>.</p>
 </div>
   </div>
   
@@ -416,34 +562,8 @@ strictly_between(3, 6) |&gt; is_after_or_at(5) == False
       -->
       
     </div>
-    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before</strong> the specified <code>PosixTime</code></p>
-<pre><code>before(4) |&gt; is_before(5) == True
-strictly_before(5) |&gt; is_before(5) == True
-between(1, 4) |&gt; is_before(5) == True
-strictly_between(2, 5) |&gt; is_before(5) == True
-
-// negative cases:
-after(4) |&gt; is_before(5) == False
-after(5) |&gt; is_before(5) == False
-after(6) |&gt; is_before(5) == False
-strictly_after(3) |&gt; is_before(5) == False
-strictly_after(4) |&gt; is_before(5) == False
-strictly_after(5) |&gt; is_before(5) == False
-before(6) |&gt; is_before(5) == False
-strictly_before(7) |&gt; is_before(5) == False
-between(3, 6) |&gt; is_before(5) == False
-between(4, 7) |&gt; is_before(5) == False
-between(5, 8) |&gt; is_before(5) == False
-between(6, 9) |&gt; is_before(5) == False
-strictly_between(4, 7) |&gt; is_before(5) == False
-strictly_between(5, 8) |&gt; is_before(5) == False
-
-// interval ends AT deadline:
-before(5) |&gt; is_before(5) == False
-strictly_before(6) |&gt; is_before(5) == False
-between(2, 5) |&gt; is_before(5) == False
-strictly_between(3, 6) |&gt; is_before(5) == False
-</code></pre>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before</strong> the specified <code>PosixTime</code>.
+This function is an alias for <code>ends_before</code>.</p>
 </div>
   </div>
   
@@ -458,34 +578,8 @@ strictly_between(3, 6) |&gt; is_before(5) == False
       -->
       
     </div>
-    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before-or-at</strong> the specified <code>PosixTime</code></p>
-<pre><code>before(4) |&gt; is_before_or_at(5) == True
-strictly_before(5) |&gt; is_before_or_at(5) == True
-between(1, 4) |&gt; is_before_or_at(5) == True
-strictly_between(2, 5) |&gt; is_before_or_at(5) == True
-
-// interval ends AT deadline:
-before(5) |&gt; is_before_or_at(5) == True
-strictly_before(6) |&gt; is_before_or_at(5) == True
-between(2, 5) |&gt; is_before_or_at(5) == True
-strictly_between(3, 6) |&gt; is_before_or_at(5) == True
-
-// negative cases:
-after(4) |&gt; is_before_or_at(5) == False
-after(5) |&gt; is_before_or_at(5) == False
-after(6) |&gt; is_before_or_at(5) == False
-strictly_after(3) |&gt; is_before_or_at(5) == False
-strictly_after(4) |&gt; is_before_or_at(5) == False
-strictly_after(5) |&gt; is_before_or_at(5) == False
-before(6) |&gt; is_before_or_at(5) == False
-strictly_before(7) |&gt; is_before_or_at(5) == False
-between(3, 6) |&gt; is_before_or_at(5) == False
-between(4, 7) |&gt; is_before_or_at(5) == False
-between(5, 8) |&gt; is_before_or_at(5) == False
-between(6, 9) |&gt; is_before_or_at(5) == False
-strictly_between(4, 7) |&gt; is_before_or_at(5) == False
-strictly_between(5, 8) |&gt; is_before_or_at(5) == False
-</code></pre>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before-or-at</strong> the specified <code>PosixTime</code>.
+This function is an alias for <code>ends_before_or_at</code>.</p>
 </div>
   </div>
   
@@ -508,6 +602,180 @@ start_of(between(5, 10)).bound_type == Finite(5)
 // also works with flipped `between` arguments
 start_of(between(10, 5)).bound_type == Finite(5)
 // as of Aiken v1.0.8-alpha
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="starts_after"><pre class="hljs language-aiken">starts_after(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>after</strong> the specified <code>PosixTime</code></p>
+<pre><code>after(6) |&gt; starts_after(5) == True
+between(6, 9) |&gt; starts_after(5) == True
+strictly_after(5) |&gt; starts_after(5) == True
+strictly_between(5, 8) |&gt; starts_after(5) == True
+
+// negative cases:
+after(4) |&gt; starts_after(5) == False
+strictly_after(3) |&gt; starts_after(5) == False
+before(4) |&gt; starts_after(5) == False
+before(5) |&gt; starts_after(5) == False
+before(6) |&gt; starts_after(5) == False
+strictly_before(5) |&gt; starts_after(5) == False
+strictly_before(6) |&gt; starts_after(5) == False
+strictly_before(7) |&gt; starts_after(5) == False
+between(1, 4) |&gt; starts_after(5) == False
+between(2, 5) |&gt; starts_after(5) == False
+between(3, 6) |&gt; starts_after(5) == False
+between(4, 7) |&gt; starts_after(5) == False
+strictly_between(2, 5) |&gt; starts_after(5) == False
+strictly_between(3, 6) |&gt; starts_after(5) == False
+
+// interval starts AT deadline:
+after(5) |&gt; starts_after(5) == False
+between(5, 8) |&gt; starts_after(5) == False
+strictly_after(4) |&gt; starts_after(5) == False
+strictly_between(4, 7) |&gt; starts_after(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="starts_after_or_at"><pre class="hljs language-aiken">starts_after_or_at(
+  some_interval: Interval&lt;PosixTime&gt;,
+  deadline: PosixTime,
+) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>after-or-at</strong> the specified <code>PosixTime</code></p>
+<pre><code>after(6) |&gt; starts_after_or_at(5) == True
+strictly_after(5) |&gt; starts_after_or_at(5) == True
+between(6, 9) |&gt; starts_after_or_at(5) == True
+strictly_between(5, 8) |&gt; starts_after_or_at(5) == True
+
+// interval starts AT deadline:
+after(5) |&gt; starts_after_or_at(5) == True
+strictly_after(4) |&gt; starts_after_or_at(5) == True
+between(5, 8) |&gt; starts_after_or_at(5) == True
+strictly_between(4, 7) |&gt; starts_after_or_at(5) == True
+
+// negative cases:
+after(4) |&gt; starts_after_or_at(5) == False
+strictly_after(3) |&gt; starts_after_or_at(5) == False
+before(4) |&gt; starts_after_or_at(5) == False
+before(5) |&gt; starts_after_or_at(5) == False
+before(6) |&gt; starts_after_or_at(5) == False
+strictly_before(5) |&gt; starts_after_or_at(5) == False
+strictly_before(6) |&gt; starts_after_or_at(5) == False
+strictly_before(7) |&gt; starts_after_or_at(5) == False
+between(1, 4) |&gt; starts_after_or_at(5) == False
+between(2, 5) |&gt; starts_after_or_at(5) == False
+between(3, 6) |&gt; starts_after_or_at(5) == False
+between(4, 7) |&gt; starts_after_or_at(5) == False
+strictly_between(2, 5) |&gt; starts_after_or_at(5) == False
+strictly_between(3, 6) |&gt; starts_after_or_at(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="starts_before"><pre class="hljs language-aiken">starts_before(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>before</strong> the specified <code>PosixTime</code></p>
+<pre><code>after(4) |&gt; starts_before(5) == True
+strictly_after(3) |&gt; starts_before(5) == True
+before(4) |&gt; starts_before(5) == True
+before(5) |&gt; starts_before(5) == True
+before(6) |&gt; starts_before(5) == True
+strictly_before(5) |&gt; starts_before(5) == True
+strictly_before(6) |&gt; starts_before(5) == True
+strictly_before(7) |&gt; starts_before(5) == True
+between(1, 4) |&gt; starts_before(5) == True
+between(2, 5) |&gt; starts_before(5) == True
+between(3, 6) |&gt; starts_before(5) == True
+between(4, 7) |&gt; starts_before(5) == True
+strictly_between(2, 5) |&gt; starts_before(5) == True
+strictly_between(3, 6) |&gt; starts_before(5) == True
+
+// negative cases:
+after(6) |&gt; starts_before(5) == False
+strictly_after(5) |&gt; starts_before(5) == False
+between(6, 9) |&gt; starts_before(5) == False
+strictly_between(5, 8) |&gt; starts_before(5) == False
+
+// interval starts AT deadline:
+after(5) |&gt; starts_before(5) == False
+strictly_after(4) |&gt; starts_before(5) == False
+between(5, 8) |&gt; starts_before(5) == False
+strictly_between(4, 7) |&gt; starts_before(5) == False
+</code></pre>
+</div>
+  </div>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="starts_before_or_at"><pre class="hljs language-aiken">starts_before_or_at(
+  some_interval: Interval&lt;PosixTime&gt;,
+  deadline: PosixTime,
+) -&gt; Bool</pre></h2>
+      
+      <!-- TODO: support source linking
+      <a class="member-source" alt="View Source" title="View Source" href="#todo">
+        &lt;/&gt;
+      </a>
+      -->
+      
+    </div>
+    <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>before-or-at</strong> the specified <code>PosixTime</code></p>
+<pre><code>after(4) |&gt; starts_before_or_at(5) == True
+strictly_after(3) |&gt; starts_before_or_at(5) == True
+before(4) |&gt; starts_before_or_at(5) == True
+before(5) |&gt; starts_before_or_at(5) == True
+before(6) |&gt; starts_before_or_at(5) == True
+strictly_before(5) |&gt; starts_before_or_at(5) == True
+strictly_before(6) |&gt; starts_before_or_at(5) == True
+strictly_before(7) |&gt; starts_before_or_at(5) == True
+between(1, 4) |&gt; starts_before_or_at(5) == True
+between(2, 5) |&gt; starts_before_or_at(5) == True
+between(3, 6) |&gt; starts_before_or_at(5) == True
+between(4, 7) |&gt; starts_before_or_at(5) == True
+strictly_between(2, 5) |&gt; starts_before_or_at(5) == True
+strictly_between(3, 6) |&gt; starts_before_or_at(5) == True
+
+// interval starts AT deadline:
+after(5) |&gt; starts_before_or_at(5) == True
+strictly_after(4) |&gt; starts_before_or_at(5) == True
+between(5, 8) |&gt; starts_before_or_at(5) == True
+strictly_between(4, 7) |&gt; starts_before_or_at(5) == True
+
+// negative cases:
+after(6) |&gt; starts_before_or_at(5) == False
+strictly_after(5) |&gt; starts_before_or_at(5) == False
+between(6, 9) |&gt; starts_before_or_at(5) == False
+strictly_between(5, 8) |&gt; starts_before_or_at(5) == False
 </code></pre>
 </div>
   </div>
@@ -564,8 +832,8 @@ start_of(between(10, 5)).bound_type == Finite(5)
       </defs>
     </svg>
 
-    <script src="../js/highlight.min.js?v=1.0.8-alpha"></script>
-    <script src="../js/highlightjs-aiken.js?v=1.0.8-alpha"></script>
+    <script src="../js/highlight.min.js?v=1.0.10-alpha"></script>
+    <script src="../js/highlightjs-aiken.js?v=1.0.10-alpha"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -584,9 +852,9 @@ start_of(between(10, 5)).bound_type == Finite(5)
 	el.prepend(a);
       });
     </script>
-    <script src="../js/lunr.min.js?v=1.0.8-alpha"></script>
-    <script src="../js/index.js?v=1686921194"></script>
+    <script src="../js/lunr.min.js?v=1.0.10-alpha"></script>
+    <script src="../js/index.js?v=1687073388"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../search-data.js?v=1686921194"></script>
+    <script src="../search-data.js?v=1687073388"></script>
   </body>
 </html>
