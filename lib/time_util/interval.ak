@@ -8,14 +8,14 @@
 //// ```
 //// time_util/interval:
 //// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 2803844, cpu: 1095244947] interval_starts_after_deadline
-//// │ PASS [mem: 2799040, cpu: 1093754563] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 2778634, cpu: 1088643387] interval_starts_before_deadline
-//// │ PASS [mem: 2773830, cpu: 1087153003] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 2766838, cpu: 1083605661] interval_ends_after_deadline
-//// │ PASS [mem: 2762034, cpu: 1082115277] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 2792048, cpu: 1090207221] interval_ends_before_deadline
-//// │ PASS [mem: 2787244, cpu: 1088716837] interval_ends_before_or_at_deadline
+//// │ PASS [mem: 3083072, cpu: 1198074955] interval_starts_after_deadline
+//// │ PASS [mem: 3078268, cpu: 1196584571] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 3057862, cpu: 1191473395] interval_starts_before_deadline
+//// │ PASS [mem: 3053058, cpu: 1189983011] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 3046066, cpu: 1186435669] interval_ends_after_deadline
+//// │ PASS [mem: 3041262, cpu: 1184945285] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 3071276, cpu: 1193037229] interval_ends_before_deadline
+//// │ PASS [mem: 3066472, cpu: 1191546845] interval_ends_before_or_at_deadline
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// 
 //// time_util/cheap/interval:
@@ -31,12 +31,11 @@
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// ```
 
-use aiken/builtin.{add_integer, subtract_integer}
 use aiken/interval.{
-  Finite, Interval, IntervalBound, IntervalBoundType, NegativeInfinity,
-  PositiveInfinity, max, min,
+  Finite, Interval, IntervalBoundType, NegativeInfinity, PositiveInfinity,
 }
 use aiken/time.{PosixTime}
+use time_util/bound.{end_bound_type_of, start_bound_type_of}
 
 /// Tells whether an interval is **after** another interval.
 /// This function is an alias for `starts_after`.
@@ -112,10 +111,8 @@ pub fn starts_after(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: start_of,
-    fn_r_bound: end_of,
-    fn_l_exclusive: add_integer(_, 1),
-    fn_r_exclusive: subtract_integer(_, 1),
+    fn_l_bound: start_bound_type_of,
+    fn_r_bound: end_bound_type_of,
     fn_compare_l_r: greater_than,
     infinity_type: PositiveInfinity,
   )
@@ -159,10 +156,8 @@ pub fn starts_after_or_at(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: start_of,
-    fn_r_bound: end_of,
-    fn_l_exclusive: add_integer(_, 1),
-    fn_r_exclusive: subtract_integer(_, 1),
+    fn_l_bound: start_bound_type_of,
+    fn_r_bound: end_bound_type_of,
     fn_compare_l_r: greater_than_equals_to,
     infinity_type: PositiveInfinity,
   )
@@ -206,10 +201,8 @@ pub fn starts_before(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: start_of,
-    fn_r_bound: start_of,
-    fn_l_exclusive: add_integer(_, 1),
-    fn_r_exclusive: add_integer(_, 1),
+    fn_l_bound: start_bound_type_of,
+    fn_r_bound: start_bound_type_of,
     fn_compare_l_r: less_than,
     infinity_type: NegativeInfinity,
   )
@@ -253,41 +246,11 @@ pub fn starts_before_or_at(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: start_of,
-    fn_r_bound: start_of,
-    fn_l_exclusive: add_integer(_, 1),
-    fn_r_exclusive: add_integer(_, 1),
+    fn_l_bound: start_bound_type_of,
+    fn_r_bound: start_bound_type_of,
     fn_compare_l_r: less_than_equals_to,
     infinity_type: NegativeInfinity,
   )
-}
-
-/// Returns the **min-bound** of `interval`
-/// ```
-/// start_of(after(5)).bound_type == Finite(5)
-/// start_of(before(5)).bound_type == NegativeInfinity
-/// start_of(between(5, 10)).bound_type == Finite(5)
-/// 
-/// // also works with flipped `between` arguments
-/// start_of(between(10, 5)).bound_type == Finite(5)
-/// // as of Aiken v1.0.8-alpha
-/// ```
-pub fn start_of(interval: Interval<PosixTime>) -> IntervalBound<PosixTime> {
-  min(interval.lower_bound, interval.upper_bound)
-}
-
-/// Returns the **max-bound** of `interval`
-/// ```
-/// end_of(after(5)).bound_type == PositiveInfinity
-/// end_of(before(5)).bound_type == Finite(5)
-/// end_of(between(5, 10)).bound_type == Finite(10)
-/// 
-/// // also works with flipped `between` arguments
-/// end_of(between(10, 5)).bound_type == Finite(10)
-/// // as of Aiken v1.0.8-alpha
-/// ```
-pub fn end_of(interval: Interval<PosixTime>) -> IntervalBound<PosixTime> {
-  max(interval.lower_bound, interval.upper_bound)
 }
 
 /// Tells whether `some_interval` ends **after** another interval.
@@ -328,10 +291,8 @@ pub fn ends_after(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: end_of,
-    fn_r_bound: end_of,
-    fn_l_exclusive: subtract_integer(_, 1),
-    fn_r_exclusive: subtract_integer(_, 1),
+    fn_l_bound: end_bound_type_of,
+    fn_r_bound: end_bound_type_of,
     fn_compare_l_r: greater_than,
     infinity_type: PositiveInfinity,
   )
@@ -375,10 +336,8 @@ pub fn ends_after_or_at(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: end_of,
-    fn_r_bound: end_of,
-    fn_l_exclusive: subtract_integer(_, 1),
-    fn_r_exclusive: subtract_integer(_, 1),
+    fn_l_bound: end_bound_type_of,
+    fn_r_bound: end_bound_type_of,
     fn_compare_l_r: greater_than_equals_to,
     infinity_type: PositiveInfinity,
   )
@@ -422,10 +381,8 @@ pub fn ends_before(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: end_of,
-    fn_r_bound: start_of,
-    fn_l_exclusive: subtract_integer(_, 1),
-    fn_r_exclusive: add_integer(_, 1),
+    fn_l_bound: end_bound_type_of,
+    fn_r_bound: start_bound_type_of,
     fn_compare_l_r: less_than,
     infinity_type: NegativeInfinity,
   )
@@ -469,10 +426,8 @@ pub fn ends_before_or_at(
   compare(
     l_interval: some_interval,
     r_interval: other_interval,
-    fn_l_bound: end_of,
-    fn_r_bound: start_of,
-    fn_l_exclusive: subtract_integer(_, 1),
-    fn_r_exclusive: add_integer(_, 1),
+    fn_l_bound: end_bound_type_of,
+    fn_r_bound: start_bound_type_of,
     fn_compare_l_r: less_than_equals_to,
     infinity_type: NegativeInfinity,
   )
@@ -481,31 +436,15 @@ pub fn ends_before_or_at(
 fn compare(
   l_interval: Interval<PosixTime>,
   r_interval: Interval<PosixTime>,
-  fn_l_bound: fn(Interval<PosixTime>) -> IntervalBound<PosixTime>,
-  fn_r_bound: fn(Interval<PosixTime>) -> IntervalBound<PosixTime>,
-  fn_l_exclusive: fn(PosixTime) -> PosixTime,
-  fn_r_exclusive: fn(PosixTime) -> PosixTime,
+  fn_l_bound: fn(Interval<PosixTime>) -> IntervalBoundType<PosixTime>,
+  fn_r_bound: fn(Interval<PosixTime>) -> IntervalBoundType<PosixTime>,
   fn_compare_l_r: fn(PosixTime, PosixTime) -> Bool,
   infinity_type: IntervalBoundType<PosixTime>,
 ) {
   let l_bound = l_interval |> fn_l_bound
   let r_bound = r_interval |> fn_r_bound
-  when (l_bound.bound_type, r_bound.bound_type) is {
-    (Finite(l), Finite(r)) -> {
-      let l =
-        if l_bound.is_inclusive {
-          l
-        } else {
-          l |> fn_l_exclusive
-        }
-      let r =
-        if r_bound.is_inclusive {
-          r
-        } else {
-          r |> fn_r_exclusive
-        }
-      fn_compare_l_r(l, r)
-    }
+  when (l_bound, r_bound) is {
+    (Finite(l), Finite(r)) -> fn_compare_l_r(l, r)
     // (infinity, _) -> infinity == infinity_type // bugged as of Aiken v1.0.8-alpha
     (PositiveInfinity, _) -> PositiveInfinity == infinity_type
     (NegativeInfinity, _) -> NegativeInfinity == infinity_type

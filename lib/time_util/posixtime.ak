@@ -8,14 +8,14 @@
 //// ```
 //// time_util/posixtime:
 //// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 2803844, cpu: 1095244947] interval_starts_after_deadline
-//// │ PASS [mem: 2799040, cpu: 1093754563] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 2778634, cpu: 1088643387] interval_starts_before_deadline
-//// │ PASS [mem: 2773830, cpu: 1087153003] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 2766838, cpu: 1083605661] interval_ends_after_deadline
-//// │ PASS [mem: 2762034, cpu: 1082115277] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 2792048, cpu: 1090207221] interval_ends_before_deadline
-//// │ PASS [mem: 2787244, cpu: 1088716837] interval_ends_before_or_at_deadline
+//// │ PASS [mem: 3083072, cpu: 1198074955] interval_starts_after_deadline
+//// │ PASS [mem: 3078268, cpu: 1196584571] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 3057862, cpu: 1191473395] interval_starts_before_deadline
+//// │ PASS [mem: 3053058, cpu: 1189983011] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 3046066, cpu: 1186435669] interval_ends_after_deadline
+//// │ PASS [mem: 3041262, cpu: 1184945285] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 3071276, cpu: 1193037229] interval_ends_before_deadline
+//// │ PASS [mem: 3066472, cpu: 1191546845] interval_ends_before_or_at_deadline
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// 
 //// time_util/cheap/posixtime:
@@ -31,7 +31,7 @@
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// ```
 
-use aiken/interval.{Interval, IntervalBound, between} as aiken_interval
+use aiken/interval.{Interval, between} as aiken_interval
 use aiken/time.{PosixTime} as aiken_time
 use time_util/interval
 
@@ -210,34 +210,6 @@ pub fn starts_before_or_at(
   deadline: PosixTime,
 ) -> Bool {
   some_interval |> interval.starts_before_or_at(between(deadline, deadline))
-}
-
-/// Returns the **min-bound** of `interval`
-/// ```
-/// start_of(after(5)).bound_type == Finite(5)
-/// start_of(before(5)).bound_type == NegativeInfinity
-/// start_of(between(5, 10)).bound_type == Finite(5)
-/// 
-/// // also works with flipped `between` arguments
-/// start_of(between(10, 5)).bound_type == Finite(5)
-/// // as of Aiken v1.0.8-alpha
-/// ```
-pub fn start_of(interval: Interval<PosixTime>) -> IntervalBound<PosixTime> {
-  interval.start_of(interval)
-}
-
-/// Returns the **max-bound** of `interval`
-/// ```
-/// end_of(after(5)).bound_type == PositiveInfinity
-/// end_of(before(5)).bound_type == Finite(5)
-/// end_of(between(5, 10)).bound_type == Finite(10)
-/// 
-/// // also works with flipped `between` arguments
-/// end_of(between(10, 5)).bound_type == Finite(10)
-/// // as of Aiken v1.0.8-alpha
-/// ```
-pub fn end_of(interval: Interval<PosixTime>) -> IntervalBound<PosixTime> {
-  interval.end_of(interval)
 }
 
 /// Tells whether `some_interval` ends **after** the specified `PosixTime`
