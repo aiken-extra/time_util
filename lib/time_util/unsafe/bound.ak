@@ -1,5 +1,5 @@
 //// A convenient way to unwrap `Finite(PosixTime)` from an `Interval`,
-//// but will **panic** if interval bound in not `Finite`.
+//// but will **panic** if the interval bound is not `Finite`.
 
 use aiken/interval.{Finite, Interval, IntervalBoundType}
 use aiken/time.{PosixTime}
