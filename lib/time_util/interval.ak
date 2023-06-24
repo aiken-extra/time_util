@@ -8,14 +8,14 @@
 //// ```
 //// time_util/interval:
 //// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 3083072, cpu: 1198074955] interval_starts_after_deadline
-//// │ PASS [mem: 3078268, cpu: 1196584571] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 3057862, cpu: 1191473395] interval_starts_before_deadline
-//// │ PASS [mem: 3053058, cpu: 1189983011] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 3046066, cpu: 1186435669] interval_ends_after_deadline
-//// │ PASS [mem: 3041262, cpu: 1184945285] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 3071276, cpu: 1193037229] interval_ends_before_deadline
-//// │ PASS [mem: 3066472, cpu: 1191546845] interval_ends_before_or_at_deadline
+//// │ PASS [mem: 3061280, cpu: 1188413503] interval_starts_after_deadline
+//// │ PASS [mem: 3056476, cpu: 1186923119] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 3036070, cpu: 1181811943] interval_starts_before_deadline
+//// │ PASS [mem: 3031266, cpu: 1180321559] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 3036070, cpu: 1181811943] interval_ends_after_deadline
+//// │ PASS [mem: 3031266, cpu: 1180321559] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 3061280, cpu: 1188413503] interval_ends_before_deadline
+//// │ PASS [mem: 3056476, cpu: 1186923119] interval_ends_before_or_at_deadline
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// 
 //// time_util/cheap/interval:
@@ -445,11 +445,8 @@ fn compare(
   let r_bound = r_interval |> fn_r_bound
   when (l_bound, r_bound) is {
     (Finite(l), Finite(r)) -> fn_compare_l_r(l, r)
-    // (infinity, _) -> infinity == infinity_type // bugged as of Aiken v1.0.8-alpha
-    (PositiveInfinity, _) -> PositiveInfinity == infinity_type
-    (NegativeInfinity, _) -> NegativeInfinity == infinity_type
-    (_, PositiveInfinity) -> PositiveInfinity != infinity_type
-    (_, NegativeInfinity) -> NegativeInfinity != infinity_type
+    (infinity, _) -> infinity == infinity_type
+    (_, infinity) -> infinity != infinity_type
   }
 }
 
