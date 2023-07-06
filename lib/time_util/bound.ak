@@ -54,6 +54,38 @@ pub fn start_bound_type_of(
   }
 }
 
+/// May return the **normalized min-bound** `Posixtime` of `interval`
+pub fn finite_start_of(interval: Interval<PosixTime>) -> Option<PosixTime> {
+  let bound = start_of(interval)
+  when bound.bound_type is {
+    Finite(time) ->
+      Some(
+        if bound.is_inclusive {
+          time
+        } else {
+          time + 1
+        },
+      )
+    _ -> None
+  }
+}
+
+/// May return the **normalized max-bound** `PosixTime` of `interval`
+pub fn finite_end_of(interval: Interval<PosixTime>) -> Option<PosixTime> {
+  let bound = end_of(interval)
+  when bound.bound_type is {
+    Finite(time) ->
+      Some(
+        if bound.is_inclusive {
+          time
+        } else {
+          time - 1
+        },
+      )
+    _ -> None
+  }
+}
+
 /// Returns the **max-bound type** of `interval` with **normalized** `Finite(PosixTime)`
 ///
 /// i.e. returns,
