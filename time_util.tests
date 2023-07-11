@@ -1,5 +1,5 @@
     Compiling aiken-lang/stdlib main (/home/ariady/aiken/time_util/build/packages/aiken-lang-stdlib)
-    Compiling ariady-putra/time_util 0.0.0 (/home/ariady/aiken/time_util)
+    Compiling aiken-extra/time_util 0.0.0 (/home/ariady/aiken/time_util)
       Testing ...
 
     ┍━ test_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
