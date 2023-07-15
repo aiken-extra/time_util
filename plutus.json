@@ -2,7 +2,7 @@
   "preamble": {
     "title": "aiken-extra/time_util",
     "description": "An Aiken utility library to help comparing time intervals",
-    "version": "0.0.0",
+    "version": "5.130.1011-alpha",
     "plutusVersion": "v2",
     "license": "Apache-2.0"
   },
