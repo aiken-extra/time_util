@@ -3,26 +3,26 @@
 //// ```
 //// time_util/cheap/interval:
 //// ┍━ test_cheap_interval_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 2642516, cpu: 1030016700] interval_starts_after_deadline
-//// │ PASS [mem: 2637712, cpu: 1028526316] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 2617306, cpu: 1023415140] interval_starts_before_deadline
-//// │ PASS [mem: 2612502, cpu: 1021924756] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 2605510, cpu: 1018377414] interval_ends_after_deadline
-//// │ PASS [mem: 2600706, cpu: 1016887030] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 2630720, cpu: 1024978974] interval_ends_before_deadline
-//// │ PASS [mem: 2625916, cpu: 1023488590] interval_ends_before_or_at_deadline
+//// │ PASS [mem: 2668916, cpu: 1036088700] interval_starts_after_deadline
+//// │ PASS [mem: 2664112, cpu: 1034598316] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 2643706, cpu: 1029487140] interval_starts_before_deadline
+//// │ PASS [mem: 2638902, cpu: 1027996756] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 2631910, cpu: 1024449414] interval_ends_after_deadline
+//// │ PASS [mem: 2627106, cpu: 1022959030] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 2657120, cpu: 1031050974] interval_ends_before_deadline
+//// │ PASS [mem: 2652316, cpu: 1029560590] interval_ends_before_or_at_deadline
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// 
 //// time_util/interval:
 //// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 3061280, cpu: 1188413503] interval_starts_after_deadline
-//// │ PASS [mem: 3056476, cpu: 1186923119] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 3036070, cpu: 1181811943] interval_starts_before_deadline
-//// │ PASS [mem: 3031266, cpu: 1180321559] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 3036070, cpu: 1181811943] interval_ends_after_deadline
-//// │ PASS [mem: 3031266, cpu: 1180321559] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 3061280, cpu: 1188413503] interval_ends_before_deadline
-//// │ PASS [mem: 3056476, cpu: 1186923119] interval_ends_before_or_at_deadline
+//// │ PASS [mem: 3109472, cpu: 1204146955] interval_starts_after_deadline
+//// │ PASS [mem: 3104668, cpu: 1202656571] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 3084262, cpu: 1197545395] interval_starts_before_deadline
+//// │ PASS [mem: 3079458, cpu: 1196055011] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 3072466, cpu: 1192507669] interval_ends_after_deadline
+//// │ PASS [mem: 3067662, cpu: 1191017285] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 3097676, cpu: 1199109229] interval_ends_before_deadline
+//// │ PASS [mem: 3092872, cpu: 1197618845] interval_ends_before_or_at_deadline
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// ```
 
