@@ -1,9 +1,9 @@
 //// ```
 //// ┍━ test_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem:  472308, cpu:  189633054] finite_start_bound_type
-//// │ PASS [mem:  173004, cpu:   69469162] infinite_start_bound_type
-//// │ PASS [mem:  455380, cpu:  182724210] finite_end_bound_type
-//// │ PASS [mem:  189932, cpu:   76378006] infinite_end_bound_type
+//// │ PASS [mem:  477108, cpu:  190737054] finite_start_bound_type
+//// │ PASS [mem:  175404, cpu:   70021162] infinite_start_bound_type
+//// │ PASS [mem:  460180, cpu:  183828210] finite_end_bound_type
+//// │ PASS [mem:  192332, cpu:   76930006] infinite_end_bound_type
 //// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
 //// ```
 
