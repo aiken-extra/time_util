@@ -6,7 +6,8 @@ use aiken/time.{PosixTime}
 use time_util/bound.{end_of, start_of}
 
 /// Returns the **normalized min-bound** `Posixtime` of `interval`
-/// # Will panic if min-bound is not Finite
+/// > ⚠️ **WARNING**:
+/// > Will panic if min-bound is not Finite
 pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = start_of(interval)
   expect Finite(time): IntervalBoundType<PosixTime> = bound.bound_type
@@ -18,7 +19,8 @@ pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
 }
 
 /// Returns the **normalized max-bound** `PosixTime` of `interval`
-/// # Will panic if max-bound is not Finite
+/// > ⚠️ **WARNING**:
+/// > Will panic if max-bound is not Finite
 pub fn finite_end_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = end_of(interval)
   expect Finite(time): IntervalBoundType<PosixTime> = bound.bound_type

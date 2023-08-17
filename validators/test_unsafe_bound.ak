@@ -1,40 +1,37 @@
 //// ```
 //// ┍━ test_unsafe_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem:  466340, cpu:  179474318] finite_start
-//// │ PASS [mem:  449412, cpu:  172565474] finite_end
+//// │ PASS [mem:  427855, cpu:  164908216] finite_start
+//// │ PASS [mem:  410927, cpu:  157999372] finite_end
 //// ┕━━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
 //// ```
 
 use aiken/interval.{
-  after, before, between, strictly_after, strictly_before, strictly_between,
+  after, before, between, entirely_after, entirely_before, entirely_between,
 }
-use aiken/list
 use time_util/unsafe/bound.{finite_end_of, finite_start_of}
 
 test finite_start() {
-  [
+  and {
     ( after(4) |> finite_start_of ) == 4,
     ( after(6) |> finite_start_of ) == 6,
-    ( strictly_after(3) |> finite_start_of ) == 4,
-    ( strictly_after(5) |> finite_start_of ) == 6,
+    ( entirely_after(3) |> finite_start_of ) == 4,
+    ( entirely_after(5) |> finite_start_of ) == 6,
     ( between(1, 4) |> finite_start_of ) == 1,
     ( between(6, 9) |> finite_start_of ) == 6,
-    ( strictly_between(2, 5) |> finite_start_of ) == 3,
-    ( strictly_between(5, 8) |> finite_start_of ) == 6,
-  ]
-    |> list.and
+    ( entirely_between(2, 5) |> finite_start_of ) == 3,
+    ( entirely_between(5, 8) |> finite_start_of ) == 6,
+  }
 }
 
 test finite_end() {
-  [
+  and {
     ( before(4) |> finite_end_of ) == 4,
     ( before(6) |> finite_end_of ) == 6,
-    ( strictly_before(5) |> finite_end_of ) == 4,
-    ( strictly_before(7) |> finite_end_of ) == 6,
+    ( entirely_before(5) |> finite_end_of ) == 4,
+    ( entirely_before(7) |> finite_end_of ) == 6,
     ( between(1, 4) |> finite_end_of ) == 4,
     ( between(6, 9) |> finite_end_of ) == 9,
-    ( strictly_between(2, 5) |> finite_end_of ) == 4,
-    ( strictly_between(5, 8) |> finite_end_of ) == 7,
-  ]
-    |> list.and
+    ( entirely_between(2, 5) |> finite_end_of ) == 4,
+    ( entirely_between(5, 8) |> finite_end_of ) == 7,
+  }
 }
