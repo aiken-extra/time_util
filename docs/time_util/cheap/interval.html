@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)"/>
     <link rel="icon" type="image/svg+xml" sizes="any" href="../../favicon.svg"/>
-    <link rel="stylesheet" href="../../css/index.css?v=1.0.13-alpha" type="text/css"/>
-    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.0.13-alpha"/>
+    <link rel="stylesheet" href="../../css/index.css?v=1.0.14-alpha" type="text/css"/>
+    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.0.14-alpha"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -120,13 +120,13 @@
       <h2>
         <a href="../../">time_util</a>
         <span id="project-version">
-          <span>v5.140.202308 </span>
+          <span>v5.150.202308 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v5.140.202308";
+            const currentVersion = "v5.150.202308";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -304,26 +304,26 @@
 <p>A slightly cheaper version of <code>time_util/interval</code> in terms of memory and CPU usage.</p>
 <pre><code>time_util/cheap/interval:
 ┍━ test_cheap_interval_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-│ PASS [mem: 2668916, cpu: 1036088700] interval_starts_after_deadline
-│ PASS [mem: 2664112, cpu: 1034598316] interval_starts_after_or_at_deadline
-│ PASS [mem: 2643706, cpu: 1029487140] interval_starts_before_deadline
-│ PASS [mem: 2638902, cpu: 1027996756] interval_starts_before_or_at_deadline
-│ PASS [mem: 2631910, cpu: 1024449414] interval_ends_after_deadline
-│ PASS [mem: 2627106, cpu: 1022959030] interval_ends_after_or_at_deadline
-│ PASS [mem: 2657120, cpu: 1031050974] interval_ends_before_deadline
-│ PASS [mem: 2652316, cpu: 1029560590] interval_ends_before_or_at_deadline
+│ PASS [mem: 2568915, cpu:  997808012] interval_starts_after_deadline
+│ PASS [mem: 2564111, cpu:  996317628] interval_starts_after_or_at_deadline
+│ PASS [mem: 2543705, cpu:  991206452] interval_starts_before_deadline
+│ PASS [mem: 2538901, cpu:  989716068] interval_starts_before_or_at_deadline
+│ PASS [mem: 2531909, cpu:  986168726] interval_ends_after_deadline
+│ PASS [mem: 2527105, cpu:  984678342] interval_ends_after_or_at_deadline
+│ PASS [mem: 2557119, cpu:  992770286] interval_ends_before_deadline
+│ PASS [mem: 2552315, cpu:  991279902] interval_ends_before_or_at_deadline
 ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 
 time_util/interval:
 ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-│ PASS [mem: 3109472, cpu: 1204146955] interval_starts_after_deadline
-│ PASS [mem: 3104668, cpu: 1202656571] interval_starts_after_or_at_deadline
-│ PASS [mem: 3084262, cpu: 1197545395] interval_starts_before_deadline
-│ PASS [mem: 3079458, cpu: 1196055011] interval_starts_before_or_at_deadline
-│ PASS [mem: 3072466, cpu: 1192507669] interval_ends_after_deadline
-│ PASS [mem: 3067662, cpu: 1191017285] interval_ends_after_or_at_deadline
-│ PASS [mem: 3097676, cpu: 1199109229] interval_ends_before_deadline
-│ PASS [mem: 3092872, cpu: 1197618845] interval_ends_before_or_at_deadline
+│ PASS [mem: 3009471, cpu: 1165866267] interval_starts_after_deadline
+│ PASS [mem: 3004667, cpu: 1164375883] interval_starts_after_or_at_deadline
+│ PASS [mem: 2984261, cpu: 1159264707] interval_starts_before_deadline
+│ PASS [mem: 2979457, cpu: 1157774323] interval_starts_before_or_at_deadline
+│ PASS [mem: 2972465, cpu: 1154226981] interval_ends_after_deadline
+│ PASS [mem: 2967661, cpu: 1152736597] interval_ends_after_or_at_deadline
+│ PASS [mem: 2997675, cpu: 1160828541] interval_ends_before_deadline
+│ PASS [mem: 2992871, cpu: 1159338157] interval_ends_before_or_at_deadline
 ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 </code></pre>
 
@@ -842,13 +842,13 @@ strictly_between(5, 8) |&gt; starts_before_or_at(an_interval) == False
       </defs>
     </svg>
 
-    <script src="../../js/highlight.min.js?v=1.0.13-alpha"></script>
-    <script src="../../js/highlightjs-aiken.js?v=1.0.13-alpha"></script>
+    <script src="../../js/highlight.min.js?v=1.0.14-alpha"></script>
+    <script src="../../js/highlightjs-aiken.js?v=1.0.14-alpha"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
-        if (elem.className === "") {
+        // if (elem.className === "") {
           elem.classList.add("aiken");
-        }
+        // }
       });
       hljs.highlightAll();
       document.querySelectorAll(".member-name > h2 > pre").forEach((el) => {
@@ -862,9 +862,9 @@ strictly_between(5, 8) |&gt; starts_before_or_at(an_interval) == False
 	el.prepend(a);
       });
     </script>
-    <script src="../../js/lunr.min.js?v=1.0.13-alpha"></script>
-    <script src="../../js/index.js?v=1692115646"></script>
+    <script src="../../js/lunr.min.js?v=1.0.14-alpha"></script>
+    <script src="../../js/index.js?v=1692287916"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1692115646"></script>
+    <script src="../../search-data.js?v=1692287916"></script>
   </body>
 </html>
