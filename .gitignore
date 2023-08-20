@@ -2,6 +2,7 @@
 *.plutus
 *.address
 aiken.sh
+plutus.json
 # Aiken compilation artifacts
 artifacts/
 # Aiken's project working directory
