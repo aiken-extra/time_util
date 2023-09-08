@@ -1,5 +1,5 @@
 name = "aiken-extra/time_util"
-version = "5.150.202309"
+version = "5.160.202309"
 license = "Apache-2.0"
 description = "An Aiken utility library to help comparing time intervals"
 
