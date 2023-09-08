@@ -2,7 +2,7 @@
 
 A utility library to help comparing time intervals.
 
-| ℹ️  | Package info    | aiken-extra/time_util v5.150.202308f                                                                | 🪲  |
+| ℹ️  | Package info    | aiken-extra/time_util v5.150.202309                                                                 | 🪲  |
 | --- | --------------- | --------------------------------------------------------------------------------------------------- | --- |
-| 🟢  | **Depends on**  | **aiken-lang/stdlib v1.5.0**                                                                        | ✔️  |
-| 🟢  | **Tested with** | **[1715496d5b](https://github.com/aiken-lang/aiken/tree/1715496d5ba70be939662b554b5aac9fff4d7f3e)** | ✔️  |
+| 🟢  | **Depends on**  | **aiken-lang/stdlib v1.6.0**                                                                        | ✔️  |
+| 🟢  | **Tested with** | **[9782c094b7](https://github.com/aiken-lang/aiken/tree/9782c094b7d917c750dddb180197e8bb24514645)** | ✔️  |
