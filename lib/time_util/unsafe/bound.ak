@@ -10,7 +10,9 @@ use time_util/bound.{end_of, start_of}
 /// > Will panic if min-bound is not Finite
 pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = start_of(interval)
+
   expect Finite(time): IntervalBoundType<PosixTime> = bound.bound_type
+
   if bound.is_inclusive {
     time
   } else {
@@ -23,7 +25,9 @@ pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
 /// > Will panic if max-bound is not Finite
 pub fn finite_end_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = end_of(interval)
+
   expect Finite(time): IntervalBoundType<PosixTime> = bound.bound_type
+
   if bound.is_inclusive {
     time
   } else {
