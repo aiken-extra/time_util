@@ -1,10 +1,10 @@
 //// ```
-//// ┍━ test_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem:  438623, cpu:  176170952] finite_start_bound_type
-//// │ PASS [mem:  154495, cpu:   62230656] infinite_start_bound_type
-//// │ PASS [mem:  421695, cpu:  169262108] finite_end_bound_type
-//// │ PASS [mem:  171423, cpu:   69139500] infinite_end_bound_type
-//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
+//// ┍━ test_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//// │ PASS [mem:  326663, cpu: 128626024] finite_start_bound_type
+//// │ PASS [mem:  115039, cpu:  45395012] infinite_start_bound_type
+//// │ PASS [mem:  309735, cpu: 121717180] finite_end_bound_type
+//// │ PASS [mem:  131967, cpu:  52303856] infinite_end_bound_type
+//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4 tests | 4 passed | 0 failed
 //// ```
 
 use aiken/interval.{

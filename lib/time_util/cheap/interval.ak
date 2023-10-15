@@ -1,30 +1,4 @@
 //// A slightly cheaper version of `time_util/interval` in terms of memory and CPU usage.
-////
-//// ```
-//// time_util/cheap/interval:
-//// ┍━ test_cheap_interval_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 2568915, cpu:  997808012] interval_starts_after_deadline
-//// │ PASS [mem: 2564111, cpu:  996317628] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 2543705, cpu:  991206452] interval_starts_before_deadline
-//// │ PASS [mem: 2538901, cpu:  989716068] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 2531909, cpu:  986168726] interval_ends_after_deadline
-//// │ PASS [mem: 2527105, cpu:  984678342] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 2557119, cpu:  992770286] interval_ends_before_deadline
-//// │ PASS [mem: 2552315, cpu:  991279902] interval_ends_before_or_at_deadline
-//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
-//// 
-//// time_util/interval:
-//// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 3009471, cpu: 1165866267] interval_starts_after_deadline
-//// │ PASS [mem: 3004667, cpu: 1164375883] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 2984261, cpu: 1159264707] interval_starts_before_deadline
-//// │ PASS [mem: 2979457, cpu: 1157774323] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 2972465, cpu: 1154226981] interval_ends_after_deadline
-//// │ PASS [mem: 2967661, cpu: 1152736597] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 2997675, cpu: 1160828541] interval_ends_before_deadline
-//// │ PASS [mem: 2992871, cpu: 1159338157] interval_ends_before_or_at_deadline
-//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
-//// ```
 
 use aiken/interval.{Finite, Interval, NegativeInfinity, PositiveInfinity}
 use aiken/time.{PosixTime}
