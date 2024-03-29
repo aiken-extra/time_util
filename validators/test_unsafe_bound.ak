@@ -1,7 +1,7 @@
 //// ```
 //// ┍━ test_unsafe_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem:  315895, cpu: 117363288] finite_start
-//// │ PASS [mem:  298967, cpu: 110454444] finite_end
+//// │ PASS [mem:  284651, cpu: 114240716] finite_start
+//// │ PASS [mem:  274223, cpu: 108826872] finite_end
 //// ┕━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
 //// ```
 
