@@ -2,11 +2,11 @@
   "preamble": {
     "title": "aiken-extra/time_util",
     "description": "An Aiken utility library to help comparing time intervals",
-    "version": "5.180.202403",
+    "version": "5.190.202405",
     "plutusVersion": "v2",
     "compiler": {
       "name": "Aiken",
-      "version": "v1.0.26-alpha+26bbe00"
+      "version": "v1.0.28-alpha+unknown"
     },
     "license": "Apache-2.0"
   },
