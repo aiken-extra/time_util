@@ -2,7 +2,7 @@ use aiken/interval.{
   Finite, Interval, IntervalBound, IntervalBoundType, NegativeInfinity,
   PositiveInfinity, max, min,
 }
-use aiken/time.{PosixTime}
+use time_util/time.{PosixTime}
 
 /// Returns the **min-bound** of `interval`
 /// ```
