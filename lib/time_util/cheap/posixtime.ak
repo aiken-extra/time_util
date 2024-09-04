@@ -1,8 +1,8 @@
 //// A cheaper version of `time_util/posixtime` in terms of memory and CPU usage.
 
 use aiken/interval.{Finite, Interval, NegativeInfinity, PositiveInfinity}
-use aiken/time.{PosixTime}
 use time_util/bound.{end_of, start_of}
+use time_util/time.{PosixTime}
 
 /// Tells whether `some_interval` is **after** the specified `PosixTime`.
 /// This function is an alias for `starts_after`.

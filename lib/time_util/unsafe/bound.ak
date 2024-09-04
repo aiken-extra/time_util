@@ -2,8 +2,8 @@
 //// but will **panic** if the interval bound is not `Finite`.
 
 use aiken/interval.{Finite, Interval, IntervalBoundType}
-use aiken/time.{PosixTime}
 use time_util/bound.{end_of, start_of}
+use time_util/time.{PosixTime}
 
 /// Returns the **normalized min-bound** `Posixtime` of `interval`
 /// > ⚠️ **WARNING**:

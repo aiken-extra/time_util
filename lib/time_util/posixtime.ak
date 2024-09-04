@@ -6,8 +6,8 @@
 //// Use `time_util/cheap/posixtime` instead for cheaper memory and CPU usage.
 
 use aiken/interval.{Interval, between} as aiken_interval
-use aiken/time.{PosixTime} as aiken_time
 use time_util/interval
+use time_util/time.{PosixTime}
 
 /// Tells whether `some_interval` is **after** the specified `PosixTime`.
 /// This function is an alias for `starts_after`.

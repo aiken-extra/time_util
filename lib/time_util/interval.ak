@@ -8,8 +8,8 @@
 use aiken/interval.{
   Finite, Interval, IntervalBoundType, NegativeInfinity, PositiveInfinity,
 }
-use aiken/time.{PosixTime}
 use time_util/bound.{end_bound_type_of, start_bound_type_of}
+use time_util/time.{PosixTime}
 
 /// Tells whether an interval is **after** another interval.
 /// This function is an alias for `starts_after`.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>time_util/bound - aiken-extra/time_util</title>
+    <title>time_util/time - aiken-extra/time_util</title>
     <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)"/>
     <link rel="icon" type="image/svg+xml" sizes="any" href="../favicon.svg"/>
@@ -188,44 +188,16 @@
 
         
 
-
-
-
-
-<h2>Functions</h2>
+<h2>Types</h2>
 <ul>
   
-    
-        <li><a href="#start_of">start_of</a></li>
-
-      
-  
-    
-        <li><a href="#start_bound_type_of">start_bound_type_of</a></li>
-
-      
-  
-    
-        <li><a href="#finite_start_of">finite_start_of</a></li>
-
-      
-  
-    
-        <li><a href="#finite_end_of">finite_end_of</a></li>
-
-      
-  
-    
-        <li><a href="#end_bound_type_of">end_bound_type_of</a></li>
-
-      
-  
-    
-        <li><a href="#end_of">end_of</a></li>
-
-      
+  <li><a href="#PosixTime">PosixTime</a></li>
   
 </ul>
+
+
+
+
 
 
 
@@ -238,8 +210,8 @@
         
 	  
 	    
-	      <li data-indent="1" data-current><a href="../time_util/bound.html">
-	      <strong>bound</strong>
+	      <li data-indent="1"><a href="../time_util/bound.html">
+	      bound
 	      </a></li>
 	    
 	  
@@ -282,8 +254,8 @@
         
 	  
 	    
-	      <li data-indent="1"><a href="../time_util/time.html">
-	      time
+	      <li data-indent="1" data-current><a href="../time_util/time.html">
+	      <strong>time</strong>
 	      </a></li>
 	    
 	  
@@ -306,147 +278,48 @@
       <main class="content">
         
 <h1 id="module-name" class="module-name">
-  <a href="#module-name">time_util/bound</a>
+  <a href="#module-name">time_util/time</a>
 </h1>
-
-
-
-
+<p>Bring back <a href="https://github.com/aiken-lang/stdlib/blob/205e8f9a06c6f3c9e7c93bb7745e390515e2e2cf/lib/aiken/time.ak"><code>aiken/time.{PosixTime}</code></a>
+after being removed in <a href="https://github.com/aiken-lang/stdlib/releases/tag/v2.0.0#:~:text=The%20module%20aiken/time.%20The%20PosixTime%20alias%20is%20no%20longer%20used%20anywhere"><code>stdlib v2.0.0</code></a></p>
 
 
 
 <section class="module-members">
-  <h1 id="module-functions" class="module-member-kind">
-    <a href="#module-functions">Functions</a>
+  <h1 id="module-types" class="module-member-kind">
+    <a href="#module-types">Types</a>
   </h1>
-  
-  
-      <div class="member">
-        <div class="member-name">
-          <h2 id="start_of"><pre class="hljs language-aiken">start_of(interval: Interval&lt;PosixTime&gt;) -&gt; IntervalBound&lt;PosixTime&gt;</pre></h2>
-          
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/bound.ak#L17-L19"></a>
-          
-        </div>
-        <div class="rendered-markdown"><p>Returns the <strong>min-bound</strong> of <code>interval</code></p>
-<pre><code>start_of(after(5)).bound_type == Finite(5)
-start_of(before(5)).bound_type == NegativeInfinity
-start_of(between(5, 10)).bound_type == Finite(5)
 
-// also works with flipped `between` arguments
-start_of(between(10, 5)).bound_type == Finite(5)
-// as of Aiken v1.0.8-alpha
-</code></pre>
+  
+  <div class="member">
+    <div class="member-name">
+      <h2 id="PosixTime">
+        <a href="#PosixTime">
+	  PosixTime
+        </a>
+      </h2>
+      
+        <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/time.ak#L5-L6"></a>
+      
+    </div>
+    <div class="custom-type-constructors">
+      <div class="rendered-markdown"><p>A number of milliseconds since 00:00:00 UTC on 1 January 1970.</p>
 </div>
+      
+      <h3>Alias</h3>
+      <div class="constructor-row">
+        <svg class="icon icon-at"><use xlink:href="#icon-at"></use></svg>
+        <pre class="constructor-name"><code class="hljs aiken">PosixTime = Int</code></pre>
       </div>
-    
-  
-  
-      <div class="member">
-        <div class="member-name">
-          <h2 id="start_bound_type_of"><pre class="hljs language-aiken">start_bound_type_of(
-  interval: Interval&lt;PosixTime&gt;,
-) -&gt; IntervalBoundType&lt;PosixTime&gt;</pre></h2>
-          
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/bound.ak#L39-L55"></a>
-          
-        </div>
-        <div class="rendered-markdown"><p>Returns the <strong>min-bound type</strong> of <code>interval</code> with <strong>normalized</strong> <code>Finite(PosixTime)</code></p>
-<p>i.e. returns,</p>
-<pre><code>let bound = start_of(interval)
-when bound.bound_type is {
-  Finite(time) -&gt;
-    Finite(
-      if bound.is_inclusive {
-        time
-      } else {
-        time + 1
-      },
-    )
-  PositiveInfinity -&gt; PositiveInfinity
-  NegativeInfinity -&gt; NegativeInfinity
-}
-</code></pre>
-</div>
-      </div>
-    
-  
-  
-      <div class="member">
-        <div class="member-name">
-          <h2 id="finite_start_of"><pre class="hljs language-aiken">finite_start_of(interval: Interval&lt;PosixTime&gt;) -&gt; Option&lt;PosixTime&gt;</pre></h2>
-          
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/bound.ak#L58-L71"></a>
-          
-        </div>
-        <div class="rendered-markdown"><p>May return the <strong>normalized min-bound</strong> <code>Posixtime</code> of <code>interval</code></p>
-</div>
-      </div>
-    
-  
-  
-      <div class="member">
-        <div class="member-name">
-          <h2 id="finite_end_of"><pre class="hljs language-aiken">finite_end_of(interval: Interval&lt;PosixTime&gt;) -&gt; Option&lt;PosixTime&gt;</pre></h2>
-          
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/bound.ak#L74-L87"></a>
-          
-        </div>
-        <div class="rendered-markdown"><p>May return the <strong>normalized max-bound</strong> <code>PosixTime</code> of <code>interval</code></p>
-</div>
-      </div>
-    
-  
-  
-      <div class="member">
-        <div class="member-name">
-          <h2 id="end_bound_type_of"><pre class="hljs language-aiken">end_bound_type_of(interval: Interval&lt;PosixTime&gt;) -&gt; IntervalBoundType&lt;PosixTime&gt;</pre></h2>
-          
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/bound.ak#L107-L123"></a>
-          
-        </div>
-        <div class="rendered-markdown"><p>Returns the <strong>max-bound type</strong> of <code>interval</code> with <strong>normalized</strong> <code>Finite(PosixTime)</code></p>
-<p>i.e. returns,</p>
-<pre><code>let bound = end_of(interval)
-when bound.bound_type is {
-  Finite(time) -&gt;
-    Finite(
-      if bound.is_inclusive {
-        time
-      } else {
-        time - 1
-      },
-    )
-  PositiveInfinity -&gt; PositiveInfinity
-  NegativeInfinity -&gt; NegativeInfinity
-}
-</code></pre>
-</div>
-      </div>
-    
-  
-  
-      <div class="member">
-        <div class="member-name">
-          <h2 id="end_of"><pre class="hljs language-aiken">end_of(interval: Interval&lt;PosixTime&gt;) -&gt; IntervalBound&lt;PosixTime&gt;</pre></h2>
-          
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.200.202409/lib/time_util/bound.ak#L135-L137"></a>
-          
-        </div>
-        <div class="rendered-markdown"><p>Returns the <strong>max-bound</strong> of <code>interval</code></p>
-<pre><code>end_of(after(5)).bound_type == PositiveInfinity
-end_of(before(5)).bound_type == Finite(5)
-end_of(between(5, 10)).bound_type == Finite(10)
-
-// also works with flipped `between` arguments
-end_of(between(10, 5)).bound_type == Finite(10)
-// as of Aiken v1.0.8-alpha
-</code></pre>
-</div>
-      </div>
-    
+      
+    </div>
+  </div>
   
 </section>
+
+
+
+
 
 
       </main>
