@@ -1,14 +1,14 @@
 //// ```
-//// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem: 1807665, cpu: 574715735] interval_starts_after_deadline
-//// │ PASS [mem: 1804061, cpu: 573812291] interval_starts_after_or_at_deadline
-//// │ PASS [mem: 1778855, cpu: 569347245] interval_starts_before_deadline
-//// │ PASS [mem: 1775251, cpu: 568443801] interval_starts_before_or_at_deadline
-//// │ PASS [mem: 1770059, cpu: 566234055] interval_ends_after_deadline
-//// │ PASS [mem: 1766455, cpu: 565330611] interval_ends_after_or_at_deadline
-//// │ PASS [mem: 1798869, cpu: 571602545] interval_ends_before_deadline
-//// │ PASS [mem: 1795265, cpu: 570699101] interval_ends_before_or_at_deadline
-//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
+//// ┍━ test_time_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//// │ PASS [mem: 877465, cpu: 273907959] interval_starts_after_deadline
+//// │ PASS [mem: 873861, cpu: 273004515] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 830651, cpu: 263974883] interval_starts_before_deadline
+//// │ PASS [mem: 827047, cpu: 263071439] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 840859, cpu: 268976055] interval_ends_after_deadline
+//// │ PASS [mem: 837255, cpu: 268072611] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 877465, cpu: 273907959] interval_ends_before_deadline
+//// │ PASS [mem: 873861, cpu: 273004515] interval_ends_before_or_at_deadline
+//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// ```
 
 use aiken/interval.{

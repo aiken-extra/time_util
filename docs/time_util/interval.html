@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)"/>
     <link rel="icon" type="image/svg+xml" sizes="any" href="../favicon.svg"/>
-    <link rel="stylesheet" href="../css/index.css?v=1.1.2" type="text/css"/>
-    <link id="syntax-theme" rel="stylesheet" href="../css/atom-one-light.min.css?v=1.1.2"/>
+    <link rel="stylesheet" href="../css/index.css?v=1.1.9" type="text/css"/>
+    <link id="syntax-theme" rel="stylesheet" href="../css/atom-one-light.min.css?v=1.1.9"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -120,13 +120,13 @@
       <h2>
         <a href="../">time_util</a>
         <span id="project-version">
-          <span>5.210.202409 </span>
+          <span>5.220.202412 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v5.210.202409";
+            const currentVersion = "v5.220.202412";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -363,7 +363,7 @@ and CPU usage.</p>
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L16-L21"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L16-L21"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether an interval is <strong>after</strong> another interval.
@@ -380,7 +380,7 @@ This function is an alias for <code>starts_after</code>.</p>
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L25-L30"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L25-L30"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after-or-at</strong> another interval.
@@ -397,7 +397,7 @@ This function is an alias for <code>starts_after_or_at</code>.</p>
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L34-L39"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L34-L39"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before</strong> another interval.
@@ -414,7 +414,7 @@ This function is an alias for <code>ends_before</code>.</p>
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L43-L48"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L43-L48"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before-or-at</strong> another interval.
@@ -431,7 +431,7 @@ This function is an alias for <code>ends_before_or_at</code>.</p>
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L81-L93"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L81-L93"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether an interval starts <strong>after</strong> another interval.</p>
@@ -476,7 +476,7 @@ strictly_between(4, 7) |&gt; starts_after(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L126-L138"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L126-L138"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>after-or-at</strong> another interval.</p>
@@ -521,7 +521,7 @@ strictly_between(3, 6) |&gt; starts_after_or_at(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L171-L183"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L171-L183"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>before</strong> another interval.</p>
@@ -566,7 +566,7 @@ strictly_between(4, 7) |&gt; starts_before(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L216-L228"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L216-L228"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>before-or-at</strong> another interval.</p>
@@ -611,7 +611,7 @@ strictly_between(5, 8) |&gt; starts_before_or_at(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L261-L273"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L261-L273"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>after</strong> another interval.</p>
@@ -656,7 +656,7 @@ strictly_between(3, 6) |&gt; ends_after(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L306-L318"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L306-L318"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>after-or-at</strong> another interval.</p>
@@ -701,7 +701,7 @@ strictly_between(2, 5) |&gt; ends_after_or_at(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L351-L363"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L351-L363"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>before</strong> another interval.</p>
@@ -746,7 +746,7 @@ strictly_between(3, 6) |&gt; ends_before(an_interval) == False
   other_interval: Interval&lt;PosixTime&gt;,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/interval.ak#L396-L408"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/interval.ak#L396-L408"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>before-or-at</strong> another interval.</p>
@@ -861,8 +861,8 @@ strictly_between(5, 8) |&gt; ends_before_or_at(an_interval) == False
       </defs>
     </svg>
 
-    <script src="../js/highlight.min.js?v=1.1.2"></script>
-    <script src="../js/highlightjs-aiken.js?v=1.1.2"></script>
+    <script src="../js/highlight.min.js?v=1.1.9"></script>
+    <script src="../js/highlightjs-aiken.js?v=1.1.9"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -904,10 +904,10 @@ strictly_between(5, 8) |&gt; ends_before_or_at(an_interval) == False
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script src="../js/lunr.min.js?v=1.1.2"></script>
-    <script src="../js/index.js?v=1726367832"></script>
+    <script src="../js/lunr.min.js?v=1.1.9"></script>
+    <script src="../js/index.js?v=1734152340"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../search-data.js?v=1726367832"></script>
+    <script src="../search-data.js?v=1734152340"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {

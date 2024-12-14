@@ -1,5 +1,5 @@
 name = "aiken-extra/time_util"
-version = "5.210.202409"
+version = "5.220.202412"
 license = "Apache-2.0"
 description = "An Aiken utility library to help comparing time intervals"
 
@@ -10,5 +10,5 @@ platform = "github"
 
 [[dependencies]]
 name = "aiken-lang/stdlib"
-version = "v2.1.0"
+version = "v2.2.0"
 source = "github"
