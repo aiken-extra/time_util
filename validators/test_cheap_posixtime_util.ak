@@ -1,14 +1,14 @@
 //// ```
-//// ┍━ test_cheap_posixtime_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem:  703457, cpu: 215395887] interval_starts_after_deadline
-//// │ PASS [mem:  699853, cpu: 214492443] interval_starts_after_or_at_deadline
-//// │ PASS [mem:  694447, cpu: 213195397] interval_starts_before_deadline
-//// │ PASS [mem:  690843, cpu: 212291953] interval_starts_before_or_at_deadline
-//// │ PASS [mem:  694447, cpu: 213195397] interval_ends_after_deadline
-//// │ PASS [mem:  690843, cpu: 212291953] interval_ends_after_or_at_deadline
-//// │ PASS [mem:  703457, cpu: 215395887] interval_ends_before_deadline
-//// │ PASS [mem:  699853, cpu: 214492443] interval_ends_before_or_at_deadline
-//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
+//// ┍━ test_cheap_posixtime_util ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//// │ PASS [mem: 333797, cpu: 102271063] interval_starts_after_deadline
+//// │ PASS [mem: 330193, cpu: 101367619] interval_starts_after_or_at_deadline
+//// │ PASS [mem: 324787, cpu: 100070573] interval_starts_before_deadline
+//// │ PASS [mem: 321183, cpu:  99167129] interval_starts_before_or_at_deadline
+//// │ PASS [mem: 329891, cpu: 102571159] interval_ends_after_deadline
+//// │ PASS [mem: 326287, cpu: 101667715] interval_ends_after_or_at_deadline
+//// │ PASS [mem: 338901, cpu: 104771649] interval_ends_before_deadline
+//// │ PASS [mem: 335297, cpu: 103868205] interval_ends_before_or_at_deadline
+//// ┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8 tests | 8 passed | 0 failed
 //// ```
 
 use aiken/interval.{

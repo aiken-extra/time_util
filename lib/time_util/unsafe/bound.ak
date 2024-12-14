@@ -5,9 +5,9 @@ use aiken/interval.{Finite, Interval, IntervalBoundType}
 use time_util/bound.{end_of, start_of}
 use time_util/time.{PosixTime}
 
-/// Returns the **normalized min-bound** `Posixtime` of `interval`
+/// Returns the **normalized lower-bound** `Posixtime` of an `interval`
 /// > ⚠️ **WARNING**:
-/// > Will panic if min-bound is not Finite
+/// > Will panic if `lower_bound` is not `Finite`
 pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = start_of(interval)
 
@@ -20,9 +20,9 @@ pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
   }
 }
 
-/// Returns the **normalized max-bound** `PosixTime` of `interval`
+/// Returns the **normalized upper-bound** `PosixTime` of an `interval`
 /// > ⚠️ **WARNING**:
-/// > Will panic if max-bound is not Finite
+/// > Will panic if `upper_bound` is not `Finite`
 pub fn finite_end_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = end_of(interval)
 

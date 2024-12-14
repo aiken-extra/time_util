@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)"/>
     <link rel="icon" type="image/svg+xml" sizes="any" href="../../favicon.svg"/>
-    <link rel="stylesheet" href="../../css/index.css?v=1.1.2" type="text/css"/>
-    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.1.2"/>
+    <link rel="stylesheet" href="../../css/index.css?v=1.1.9" type="text/css"/>
+    <link id="syntax-theme" rel="stylesheet" href="../../css/atom-one-light.min.css?v=1.1.9"/>
   </head>
   <body class="prewrap-off theme-light drawer-closed">
     <script>
@@ -120,13 +120,13 @@
       <h2>
         <a href="../../">time_util</a>
         <span id="project-version">
-          <span>5.210.202409 </span>
+          <span>5.220.202412 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v5.210.202409";
+            const currentVersion = "v5.220.202412";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -307,13 +307,13 @@ but will <strong>panic</strong> if the interval bound is not <code>Finite</code>
         <div class="member-name">
           <h2 id="finite_start_of"><pre class="hljs language-aiken">finite_start_of(interval: Interval&lt;PosixTime&gt;) -&gt; PosixTime</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/unsafe/bound.ak#L11-L21"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/unsafe/bound.ak#L11-L21"></a>
           
         </div>
-        <div class="rendered-markdown"><p>Returns the <strong>normalized min-bound</strong> <code>Posixtime</code> of <code>interval</code></p>
+        <div class="rendered-markdown"><p>Returns the <strong>normalized lower-bound</strong> <code>Posixtime</code> of an <code>interval</code></p>
 <blockquote>
 <p>⚠️ <strong>WARNING</strong>:
-Will panic if min-bound is not Finite</p>
+Will panic if <code>lower_bound</code> is not <code>Finite</code></p>
 </blockquote>
 </div>
       </div>
@@ -324,13 +324,13 @@ Will panic if min-bound is not Finite</p>
         <div class="member-name">
           <h2 id="finite_end_of"><pre class="hljs language-aiken">finite_end_of(interval: Interval&lt;PosixTime&gt;) -&gt; PosixTime</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.210.202409/lib/time_util/unsafe/bound.ak#L26-L36"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/unsafe/bound.ak#L26-L36"></a>
           
         </div>
-        <div class="rendered-markdown"><p>Returns the <strong>normalized max-bound</strong> <code>PosixTime</code> of <code>interval</code></p>
+        <div class="rendered-markdown"><p>Returns the <strong>normalized upper-bound</strong> <code>PosixTime</code> of an <code>interval</code></p>
 <blockquote>
 <p>⚠️ <strong>WARNING</strong>:
-Will panic if max-bound is not Finite</p>
+Will panic if <code>upper_bound</code> is not <code>Finite</code></p>
 </blockquote>
 </div>
       </div>
@@ -414,8 +414,8 @@ Will panic if max-bound is not Finite</p>
       </defs>
     </svg>
 
-    <script src="../../js/highlight.min.js?v=1.1.2"></script>
-    <script src="../../js/highlightjs-aiken.js?v=1.1.2"></script>
+    <script src="../../js/highlight.min.js?v=1.1.9"></script>
+    <script src="../../js/highlightjs-aiken.js?v=1.1.9"></script>
     <script>
       document.querySelectorAll("pre code").forEach((elem) => {
         if (elem.className === "") {
@@ -457,10 +457,10 @@ Will panic if max-bound is not Finite</p>
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script src="../../js/lunr.min.js?v=1.1.2"></script>
-    <script src="../../js/index.js?v=1726367832"></script>
+    <script src="../../js/lunr.min.js?v=1.1.9"></script>
+    <script src="../../js/index.js?v=1734152340"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1726367832"></script>
+    <script src="../../search-data.js?v=1734152340"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {

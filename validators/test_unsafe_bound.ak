@@ -1,8 +1,8 @@
 //// ```
-//// ┍━ test_unsafe_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//// │ PASS [mem:  261895, cpu:  81967887] finite_start
-//// │ PASS [mem:  251467, cpu:  78274935] finite_end
-//// ┕━━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
+//// ┍━ test_unsafe_bound ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//// │ PASS [mem: 118647, cpu:  38180227] finite_start
+//// │ PASS [mem: 123403, cpu:  39553531] finite_end
+//// ┕━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
 //// ```
 
 use aiken/interval.{
