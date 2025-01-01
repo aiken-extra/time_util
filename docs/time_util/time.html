@@ -120,13 +120,13 @@
       <h2>
         <a href="../">time_util</a>
         <span id="project-version">
-          <span>5.220.202412 </span>
+          <span>6.220.202412 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v5.220.202412";
+            const currentVersion = "v6.220.202412";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -193,11 +193,74 @@
   
   <li><a href="#PosixTime">PosixTime</a></li>
   
+  <li><a href="#TimeUnit">TimeUnit</a></li>
+  
 </ul>
 
 
 
 
+
+<h2>Functions</h2>
+<ul>
+  
+    
+        <li data-heading="2"><a href="#PosixTime">PosixTime</a></li>
+    
+  
+    
+        <li><a href="#add_time">add_time</a></li>
+
+      
+  
+    
+        <li><a href="#sub_time">sub_time</a></li>
+
+      
+  
+    
+        <li data-heading="2"><a href="#Interval">Interval</a></li>
+    
+  
+    
+        <li><a href="#add_interval">add_interval</a></li>
+
+      
+  
+    
+        <li><a href="#sub_interval">sub_interval</a></li>
+
+      
+  
+    
+        <li data-heading="2"><a href="#IntervalBound">IntervalBound</a></li>
+    
+  
+    
+        <li><a href="#add_bound">add_bound</a></li>
+
+      
+  
+    
+        <li><a href="#sub_bound">sub_bound</a></li>
+
+      
+  
+    
+        <li data-heading="2"><a href="#Finite%20IntervalBoundType">Finite IntervalBoundType</a></li>
+    
+  
+    
+        <li><a href="#add_finite">add_finite</a></li>
+
+      
+  
+    
+        <li><a href="#sub_finite">sub_finite</a></li>
+
+      
+  
+</ul>
 
 
 
@@ -280,8 +343,6 @@
 <h1 id="module-name" class="module-name">
   <a href="#module-name">time_util/time</a>
 </h1>
-<p>Bring back <a href="https://github.com/aiken-lang/stdlib/blob/205e8f9a06c6f3c9e7c93bb7745e390515e2e2cf/lib/aiken/time.ak"><code>aiken/time.{PosixTime}</code></a>
-after being removed in <a href="https://github.com/aiken-lang/stdlib/releases/tag/v2.0.0#:~:text=The%20module%20aiken/time.%20The%20PosixTime%20alias%20is%20no%20longer%20used%20anywhere"><code>stdlib v2.0.0</code></a></p>
 
 
 
@@ -299,11 +360,13 @@ after being removed in <a href="https://github.com/aiken-lang/stdlib/releases/ta
         </a>
       </h2>
       
-        <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/time.ak#L5-L6"></a>
+        <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L8-L9"></a>
       
     </div>
     <div class="custom-type-constructors">
       <div class="rendered-markdown"><p>A number of milliseconds since 00:00:00 UTC on 1 January 1970.</p>
+<p>Brought back <a href="https://github.com/aiken-lang/stdlib/blob/205e8f9a06c6f3c9e7c93bb7745e390515e2e2cf/lib/aiken/time.ak"><code>aiken/time.{PosixTime}</code></a>
+after being removed in <a href="https://github.com/aiken-lang/stdlib/releases/tag/v2.0.0#:~:text=The%20module%20aiken/time.%20The%20PosixTime%20alias%20is%20no%20longer%20used%20anywhere"><code>stdlib v2.0.0</code></a></p>
 </div>
       
       <h3>Alias</h3>
@@ -315,11 +378,469 @@ after being removed in <a href="https://github.com/aiken-lang/stdlib/releases/ta
     </div>
   </div>
   
+  <div class="member">
+    <div class="member-name">
+      <h2 id="TimeUnit">
+        <a href="#TimeUnit">
+	  TimeUnit
+        </a>
+      </h2>
+      
+        <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L11-L28"></a>
+      
+    </div>
+    <div class="custom-type-constructors">
+      <div class="rendered-markdown"></div>
+      
+      <h3>Constructors</h3>
+      <ul class="constructor-list">
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">Zero</code></pre>
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">MS(Int)</code></pre>
+          </div>
+	  
+          <div class="constructor-item-docs">
+            <p>Millisecond: <code>1 millisecond = 1 / 1_000 second</code></p>
+
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">CS(Int)</code></pre>
+          </div>
+	  
+          <div class="constructor-item-docs">
+            <p>Centisecond: <code>1 centisecond = 10 milliseconds</code></p>
+
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">DS(Int)</code></pre>
+          </div>
+	  
+          <div class="constructor-item-docs">
+            <p>Decisecond: <code>1 decisecond = 100 milliseconds</code></p>
+
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">Second(Int)</code></pre>
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">Minute(Int)</code></pre>
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">Hour(Int)</code></pre>
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">Day(Int)</code></pre>
+          </div>
+	  
+        </li>
+        
+        <li class="constructor-item">
+          <div class="constructor-row">
+            <svg class="icon icon-box"><use xlink:href="#icon-box"></use></svg>
+            <pre class="constructor-name"><code class="hljs aiken">Week(Int)</code></pre>
+          </div>
+	  
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+  
 </section>
 
 
 
 
+
+<section class="module-members">
+  <h1 id="module-functions" class="module-member-kind">
+    <a href="#module-functions">Functions</a>
+  </h1>
+  
+  
+      
+        <h2 id="PosixTime" class="module-heading"><a href="#PosixTime">PosixTime</a></h3>
+      
+  
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="add_time"><pre class="hljs language-aiken">add_time(self: PosixTime, time: TimeUnit) -&gt; PosixTime</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L80-L82"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Adds time to a <a href="#PosixTime"><code>PosixTime</code></a>. For example:</p>
+<pre><code class="language-aiken">1234567890000
+  |&gt; add_time(Zero)
+// == 1234567890000 + 0
+
+5443200000
+  |&gt; add_time(8 |&gt; Week)
+// == 5443200000 + 8 * 7 * 24 * 60 * 60 * 1_000
+
+691200000
+  |&gt; add_time(7 |&gt; Day)
+// == 691200000 + 7 * 24 * 60 * 60 * 1_000
+
+25200000
+  |&gt; add_time(6 |&gt; Minute)
+// == 25200000 + 6 * 60 * 1_000
+
+360000
+  |&gt; add_time(3 |&gt; Second)
+// == 360000 + 3 * 1_000
+
+5000
+  |&gt; add_time(2 |&gt; MS)
+// == 5000 + 2
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="sub_time"><pre class="hljs language-aiken">sub_time(self: PosixTime, time: TimeUnit) -&gt; PosixTime</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L110-L112"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Subtracts time from a <a href="#PosixTime"><code>PosixTime</code></a>. For example:</p>
+<pre><code class="language-aiken">1234567890000
+  |&gt; sub_time(Zero)
+// == 1234567890000 - 0
+
+5443200000
+  |&gt; sub_time(8 |&gt; Week)
+// == 5443200000 - 8 * 7 * 24 * 60 * 60 * 1_000
+
+691200000
+  |&gt; sub_time(7 |&gt; Day)
+// == 691200000 - 7 * 24 * 60 * 60 * 1_000
+
+25200000
+  |&gt; sub_time(6 |&gt; Minute)
+// == 25200000 - 6 * 60 * 1_000
+
+360000
+  |&gt; sub_time(3 |&gt; Second)
+// == 360000 - 3 * 1_000
+
+5000
+  |&gt; sub_time(2 |&gt; MS)
+// == 5000 - 2
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      
+        <h2 id="Interval" class="module-heading"><a href="#Interval">Interval</a></h3>
+      
+  
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="add_interval"><pre class="hljs language-aiken">add_interval(
+  self: Interval&lt;PosixTime&gt;,
+  lower_bound: TimeUnit,
+  upper_bound: TimeUnit,
+) -&gt; Interval&lt;PosixTime&gt;</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L154-L160"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Adds time to an <code>Interval</code>. For example:</p>
+<pre><code class="language-aiken">interval.after(1234567890000)
+  |&gt; add_interval(lower_bound: Zero, upper_bound: Zero)
+// == interval.after(1234567890000 + 0)
+
+interval.after(5443200000)
+  |&gt; add_interval(Zero, 8 |&gt; Week)
+// == interval.after(5443200000 + 0)
+
+interval.after(691200000)
+  |&gt; add_interval(7 |&gt; Day, Zero)
+// == interval.after(691200000 + 7 * 24 * 60 * 60 * 1_000)
+
+interval.after(25200000)
+  |&gt; add_interval(6 |&gt; Minute, 5 |&gt; Hour)
+// == interval.after(25200000 + 6 * 60 * 1_000)
+
+interval.before(360000)
+  |&gt; add_interval(4 |&gt; DS, 3 |&gt; Second)
+// == interval.before(360000 + 3 * 1_000)
+
+interval.between(4, 5000)
+  |&gt; add_interval(2 |&gt; MS, 1 |&gt; CS)
+// == interval.between(4 + 2, 5000 + 1 * 10)
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="sub_interval"><pre class="hljs language-aiken">sub_interval(
+  self: Interval&lt;PosixTime&gt;,
+  lower_bound: TimeUnit,
+  upper_bound: TimeUnit,
+) -&gt; Interval&lt;PosixTime&gt;</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L188-L194"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Subtracts time from an <code>Interval</code>. For example:</p>
+<pre><code class="language-aiken">interval.after(1234567890000)
+  |&gt; sub_interval(lower_bound: Zero, upper_bound: Zero)
+// == interval.after(1234567890000 - 0)
+
+interval.after(5443200000)
+  |&gt; sub_interval(Zero, 8 |&gt; Week)
+// == interval.after(5443200000 - 0)
+
+interval.after(691200000)
+  |&gt; sub_interval(7 |&gt; Day, Zero)
+// == interval.after(691200000 - 7 * 24 * 60 * 60 * 1_000)
+
+interval.after(25200000)
+  |&gt; sub_interval(6 |&gt; Minute, 5 |&gt; Hour)
+// == interval.after(25200000 - 6 * 60 * 1_000)
+
+interval.before(360000)
+  |&gt; sub_interval(4 |&gt; DS, 3 |&gt; Second)
+// == interval.before(360000 - 3 * 1_000)
+
+interval.between(4, 5000)
+  |&gt; sub_interval(2 |&gt; MS, 1 |&gt; CS)
+// == interval.between(4 - 2, 5000 - 1 * 10)
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      
+        <h2 id="IntervalBound" class="module-heading"><a href="#IntervalBound">IntervalBound</a></h3>
+      
+  
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="add_bound"><pre class="hljs language-aiken">add_bound(
+  self: IntervalBound&lt;PosixTime&gt;,
+  bound: TimeUnit,
+) -&gt; IntervalBound&lt;PosixTime&gt;</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L233-L238"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Adds time to an <code>IntervalBound</code>. For example:</p>
+<pre><code class="language-aiken">interval.after(1234567890000).lower_bound
+  |&gt; add_bound(Zero)
+// == IntervalBound { bound_type: Finite(1234567890000 + 0), is_inclusive: True }
+
+interval.after(5443200000).upper_bound
+  |&gt; add_bound(8 |&gt; Week)
+// == IntervalBound { bound_type: PositiveInfinity, is_inclusive: True }
+
+interval.before(691200000).lower_bound
+  |&gt; add_bound(7 |&gt; Day)
+// == IntervalBound { bound_type: NegativeInfinity, is_inclusive: True }
+
+interval.before(25200000).upper_bound
+  |&gt; add_bound(6 |&gt; Minute)
+// == IntervalBound { bound_type: Finite(25200000 + 6 * 60 * 1_000), is_inclusive: True }
+
+interval.between(360000, 12780000).lower_bound
+  |&gt; add_bound(3 |&gt; Second)
+// == IntervalBound { bound_type: Finite(360000 + 3 * 1_000), is_inclusive: True }
+
+interval.between(4, 5000).upper_bound
+  |&gt; add_bound(2 |&gt; MS)
+// == IntervalBound { bound_type: Finite(5000 + 2), is_inclusive: True }
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="sub_bound"><pre class="hljs language-aiken">sub_bound(
+  self: IntervalBound&lt;PosixTime&gt;,
+  bound: TimeUnit,
+) -&gt; IntervalBound&lt;PosixTime&gt;</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L266-L271"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Subtracts time from an <code>IntervalBound</code>. For example:</p>
+<pre><code class="language-aiken">interval.after(1234567890000).lower_bound
+  |&gt; sub_bound(Zero)
+// == IntervalBound { bound_type: Finite(1234567890000 - 0), is_inclusive: True }
+
+interval.after(5443200000).upper_bound
+  |&gt; sub_bound(8 |&gt; Week)
+// == IntervalBound { bound_type: PositiveInfinity, is_inclusive: True }
+
+interval.before(691200000).lower_bound
+  |&gt; sub_bound(7 |&gt; Day)
+// == IntervalBound { bound_type: NegativeInfinity, is_inclusive: True }
+
+interval.before(25200000).upper_bound
+  |&gt; sub_bound(6 |&gt; Minute)
+// == IntervalBound { bound_type: Finite(25200000 - 6 * 60 * 1_000), is_inclusive: True }
+
+interval.between(360000, 12780000).lower_bound
+  |&gt; sub_bound(3 |&gt; Second)
+// == IntervalBound { bound_type: Finite(360000 - 3 * 1_000), is_inclusive: True }
+
+interval.between(4, 5000).upper_bound
+  |&gt; sub_bound(2 |&gt; MS)
+// == IntervalBound { bound_type: Finite(5000 - 2), is_inclusive: True }
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      
+        <h2 id="Finite%20IntervalBoundType" class="module-heading"><a href="#Finite%20IntervalBoundType">Finite IntervalBoundType</a></h3>
+      
+  
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="add_finite"><pre class="hljs language-aiken">add_finite(
+  self: IntervalBoundType&lt;PosixTime&gt;,
+  finite: TimeUnit,
+) -&gt; IntervalBoundType&lt;PosixTime&gt;</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L313-L318"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Adds time to a <a href="https://aiken-lang.github.io/stdlib/aiken/interval.html#IntervalBoundType">finite</a>
+<code>IntervalBoundType</code>. For example:</p>
+<pre><code class="language-aiken">interval.after(1234567890000).lower_bound.bound_type
+  |&gt; add_finite(Zero)
+// == Finite(1234567890000 + 0)
+
+interval.after(5443200000).upper_bound.bound_type
+  |&gt; add_finite(8 |&gt; Week)
+// == PositiveInfinity
+
+interval.before(691200000).lower_bound.bound_type
+  |&gt; add_finite(7 |&gt; Day)
+// == NegativeInfinity
+
+interval.before(25200000).upper_bound.bound_type
+  |&gt; add_finite(6 |&gt; Minute)
+// == Finite(25200000 + 6 * 60 * 1_000)
+
+interval.between(360000, 12780000).lower_bound.bound_type
+  |&gt; add_finite(3 |&gt; Second)
+// == Finite(360000 + 3 * 1_000)
+
+interval.between(4, 5000).upper_bound.bound_type
+  |&gt; add_finite(2 |&gt; MS)
+// == Finite(5000 + 2)
+</code></pre>
+</div>
+      </div>
+    
+  
+  
+      <div class="member">
+        <div class="member-name">
+          <h2 id="sub_finite"><pre class="hljs language-aiken">sub_finite(
+  self: IntervalBoundType&lt;PosixTime&gt;,
+  finite: TimeUnit,
+) -&gt; IntervalBoundType&lt;PosixTime&gt;</pre></h2>
+          
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/time.ak#L347-L352"></a>
+          
+        </div>
+        <div class="rendered-markdown"><p>Subtracts time from a <a href="https://aiken-lang.github.io/stdlib/aiken/interval.html#IntervalBoundType">finite</a>
+<code>IntervalBoundType</code>. For example:</p>
+<pre><code class="language-aiken">interval.after(1234567890000).lower_bound.bound_type
+  |&gt; sub_finite(Zero)
+// == Finite(1234567890000 - 0)
+
+interval.after(5443200000).upper_bound.bound_type
+  |&gt; sub_finite(8 |&gt; Week)
+// == PositiveInfinity
+
+interval.before(691200000).lower_bound.bound_type
+  |&gt; sub_finite(7 |&gt; Day)
+// == NegativeInfinity
+
+interval.before(25200000).upper_bound.bound_type
+  |&gt; sub_finite(6 |&gt; Minute)
+// == Finite(25200000 - 6 * 60 * 1_000)
+
+interval.between(360000, 12780000).lower_bound.bound_type
+  |&gt; sub_finite(3 |&gt; Second)
+// == Finite(360000 - 3 * 1_000)
+
+interval.between(4, 5000).upper_bound.bound_type
+  |&gt; sub_finite(2 |&gt; MS)
+// == Finite(5000 - 2)
+</code></pre>
+</div>
+      </div>
+    
+  
+</section>
 
 
       </main>
@@ -441,9 +962,9 @@ after being removed in <a href="https://github.com/aiken-lang/stdlib/releases/ta
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="../js/lunr.min.js?v=1.1.9"></script>
-    <script src="../js/index.js?v=1734152340"></script>
+    <script src="../js/index.js?v=1735208398"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../search-data.js?v=1734152340"></script>
+    <script src="../search-data.js?v=1735208398"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {

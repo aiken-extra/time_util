@@ -120,13 +120,13 @@
       <h2>
         <a href="./">time_util</a>
         <span id="project-version">
-          <span>5.220.202412 </span>
+          <span>6.220.202412 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v5.220.202412";
+            const currentVersion = "v6.220.202412";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -265,11 +265,39 @@
       <main class="content">
         
 <h1>time_util</h1>
-<p>A utility library to help comparing time intervals.</p>
-<table><thead><tr><th>ℹ️</th><th>Package info</th><th>aiken-extra/time_util v5.220.202412</th><th>🐞</th></tr></thead><tbody>
+<p>A utility library to help comparing and mocking time intervals.</p>
+<table><thead><tr><th>ℹ️</th><th>Package info</th><th>aiken-extra/time_util v6.220.202412</th><th>🐞</th></tr></thead><tbody>
 <tr><td>🟢</td><td><strong>Depends on</strong></td><td><strong>aiken-lang/stdlib v2.2.0</strong></td><td>✔️</td></tr>
 <tr><td>🟢</td><td><strong>Tested with</strong></td><td><strong>aiken v1.1.9</strong></td><td>✔️</td></tr>
 </tbody></table>
+<h2>Get the latest <strong>block-time</strong>, and run <code>aiken check</code></h2>
+<p>You can have a real latest block-time value when running tests!</p>
+<blockquote class="markdown-alert-note">
+<p>For Linux</p>
+</blockquote>
+<p>Copy <a href="./check.sh"><code>./check.sh</code></a> and paste it in the root directory of your Aiken project.
+Make it an executable.</p>
+<p>Add <code>now</code> to <code>aiken.toml</code> configurations like:</p>
+<pre><code class="language-toml">[config.default]
+...
+now = 0
+...
+
+[config.any]
+...
+now = 0
+...
+</code></pre>
+<p>Run <code>./check.sh</code> (with optional <code>-m</code> and/or <code>-E</code> arguments)</p>
+<pre><code class="language-bash">$ ./check.sh -H
+Usage: ./check.sh -m &lt;MATCH_TEST&gt; -E &lt;ENV&gt;
+</code></pre>
+<p>It will get the latest block-time, thanks to <a href="https://www.koios.rest">Koios</a>,
+and reconfigure the value for <code>now</code> in all environments.</p>
+<p>Access it from your code by:</p>
+<pre><code class="language-aiken">use config
+trace config.now
+</code></pre>
 
 
       </main>
@@ -391,9 +419,9 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="./js/lunr.min.js?v=1.1.9"></script>
-    <script src="./js/index.js?v=1734152340"></script>
+    <script src="./js/index.js?v=1735208398"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="./search-data.js?v=1734152340"></script>
+    <script src="./search-data.js?v=1735208398"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {

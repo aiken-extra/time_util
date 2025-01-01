@@ -120,13 +120,13 @@
       <h2>
         <a href="../">time_util</a>
         <span id="project-version">
-          <span>5.220.202412 </span>
+          <span>6.220.202412 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v5.220.202412";
+            const currentVersion = "v6.220.202412";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -360,7 +360,7 @@ CPU usage.</p>
         <div class="member-name">
           <h2 id="is_after"><pre class="hljs language-aiken">is_after(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L14-L16"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L14-L16"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after</strong> the specified <code>PosixTime</code>.
@@ -374,7 +374,7 @@ This function is an alias for <code>starts_after</code>.</p>
         <div class="member-name">
           <h2 id="is_after_or_at"><pre class="hljs language-aiken">is_after_or_at(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L20-L25"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L20-L25"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>after-or-at</strong> the specified <code>PosixTime</code>.
@@ -388,7 +388,7 @@ This function is an alias for <code>starts_after_or_at</code>.</p>
         <div class="member-name">
           <h2 id="is_before"><pre class="hljs language-aiken">is_before(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L29-L34"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L29-L34"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before</strong> the specified <code>PosixTime</code>.
@@ -402,7 +402,7 @@ This function is an alias for <code>ends_before</code>.</p>
         <div class="member-name">
           <h2 id="is_before_or_at"><pre class="hljs language-aiken">is_before_or_at(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L38-L43"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L38-L43"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> is <strong>before-or-at</strong> the specified <code>PosixTime</code>.
@@ -416,7 +416,7 @@ This function is an alias for <code>ends_before_or_at</code>.</p>
         <div class="member-name">
           <h2 id="starts_after"><pre class="hljs language-aiken">starts_after(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L74-L79"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L74-L79"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>after</strong> the specified <code>PosixTime</code></p>
@@ -459,7 +459,7 @@ strictly_between(4, 7) |&gt; starts_after(5) == False
   deadline: PosixTime,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L110-L115"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L110-L115"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>after-or-at</strong> the specified <code>PosixTime</code></p>
@@ -499,7 +499,7 @@ strictly_between(3, 6) |&gt; starts_after_or_at(5) == False
         <div class="member-name">
           <h2 id="starts_before"><pre class="hljs language-aiken">starts_before(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L146-L151"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L146-L151"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>before</strong> the specified <code>PosixTime</code></p>
@@ -542,7 +542,7 @@ strictly_between(4, 7) |&gt; starts_before(5) == False
   deadline: PosixTime,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L182-L187"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L182-L187"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> starts <strong>before-or-at</strong> the specified <code>PosixTime</code></p>
@@ -582,7 +582,7 @@ strictly_between(5, 8) |&gt; starts_before_or_at(5) == False
         <div class="member-name">
           <h2 id="ends_after"><pre class="hljs language-aiken">ends_after(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L218-L223"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L218-L223"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>after</strong> the specified <code>PosixTime</code></p>
@@ -625,7 +625,7 @@ strictly_between(3, 6) |&gt; ends_after(5) == False
   deadline: PosixTime,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L254-L259"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L254-L259"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>after-or-at</strong> the specified <code>PosixTime</code></p>
@@ -665,7 +665,7 @@ strictly_between(2, 5) |&gt; ends_after_or_at(5) == False
         <div class="member-name">
           <h2 id="ends_before"><pre class="hljs language-aiken">ends_before(some_interval: Interval&lt;PosixTime&gt;, deadline: PosixTime) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L290-L295"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L290-L295"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>before</strong> the specified <code>PosixTime</code></p>
@@ -708,7 +708,7 @@ strictly_between(3, 6) |&gt; ends_before(5) == False
   deadline: PosixTime,
 ) -&gt; Bool</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/5.220.202412/lib/time_util/posixtime.ak#L326-L331"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/posixtime.ak#L326-L331"></a>
           
         </div>
         <div class="rendered-markdown"><p>Tells whether <code>some_interval</code> ends <strong>before-or-at</strong> the specified <code>PosixTime</code></p>
@@ -865,9 +865,9 @@ strictly_between(5, 8) |&gt; ends_before_or_at(5) == False
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="../js/lunr.min.js?v=1.1.9"></script>
-    <script src="../js/index.js?v=1734152340"></script>
+    <script src="../js/index.js?v=1735208398"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../search-data.js?v=1734152340"></script>
+    <script src="../search-data.js?v=1735208398"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {
