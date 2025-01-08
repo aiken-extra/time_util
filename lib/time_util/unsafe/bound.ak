@@ -6,7 +6,7 @@ use time_util/bound.{end_of, start_of}
 use time_util/time.{PosixTime}
 
 /// Returns the **normalized lower-bound** `Posixtime` of an `interval`
-/// > ⚠️ **WARNING**:
+/// > [!WARNING]
 /// > Will panic if `lower_bound` is not `Finite`
 pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = start_of(interval)
@@ -21,7 +21,7 @@ pub fn finite_start_of(interval: Interval<PosixTime>) -> PosixTime {
 }
 
 /// Returns the **normalized upper-bound** `PosixTime` of an `interval`
-/// > ⚠️ **WARNING**:
+/// > [!WARNING]
 /// > Will panic if `upper_bound` is not `Finite`
 pub fn finite_end_of(interval: Interval<PosixTime>) -> PosixTime {
   let bound = end_of(interval)

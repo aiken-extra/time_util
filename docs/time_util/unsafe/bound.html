@@ -120,13 +120,13 @@
       <h2>
         <a href="../../">time_util</a>
         <span id="project-version">
-          <span>6.220.202412 </span>
+          <span>6.220.202501 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v6.220.202412";
+            const currentVersion = "v6.220.202501";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -307,13 +307,12 @@ but will <strong>panic</strong> if the interval bound is not <code>Finite</code>
         <div class="member-name">
           <h2 id="finite_start_of"><pre class="hljs language-aiken">finite_start_of(interval: Interval&lt;PosixTime&gt;) -&gt; PosixTime</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/unsafe/bound.ak#L11-L21"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202501/lib/time_util/unsafe/bound.ak#L11-L21"></a>
           
         </div>
         <div class="rendered-markdown"><p>Returns the <strong>normalized lower-bound</strong> <code>Posixtime</code> of an <code>interval</code></p>
-<blockquote>
-<p>⚠️ <strong>WARNING</strong>:
-Will panic if <code>lower_bound</code> is not <code>Finite</code></p>
+<blockquote class="markdown-alert-warning">
+<p>Will panic if <code>lower_bound</code> is not <code>Finite</code></p>
 </blockquote>
 </div>
       </div>
@@ -324,13 +323,12 @@ Will panic if <code>lower_bound</code> is not <code>Finite</code></p>
         <div class="member-name">
           <h2 id="finite_end_of"><pre class="hljs language-aiken">finite_end_of(interval: Interval&lt;PosixTime&gt;) -&gt; PosixTime</pre></h2>
           
-      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202412/lib/time_util/unsafe/bound.ak#L26-L36"></a>
+      	    <a class="member-source" alt="view source" title="view source" target="_blank" href="https://github.com/aiken-extra/time_util/blob/6.220.202501/lib/time_util/unsafe/bound.ak#L26-L36"></a>
           
         </div>
         <div class="rendered-markdown"><p>Returns the <strong>normalized upper-bound</strong> <code>PosixTime</code> of an <code>interval</code></p>
-<blockquote>
-<p>⚠️ <strong>WARNING</strong>:
-Will panic if <code>upper_bound</code> is not <code>Finite</code></p>
+<blockquote class="markdown-alert-warning">
+<p>Will panic if <code>upper_bound</code> is not <code>Finite</code></p>
 </blockquote>
 </div>
       </div>
@@ -458,9 +456,9 @@ Will panic if <code>upper_bound</code> is not <code>Finite</code></p>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="../../js/lunr.min.js?v=1.1.9"></script>
-    <script src="../../js/index.js?v=1735208398"></script>
+    <script src="../../js/index.js?v=1736322573"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="../../search-data.js?v=1735208398"></script>
+    <script src="../../search-data.js?v=1736322573"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {
