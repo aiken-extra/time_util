@@ -1,11 +1,14 @@
 # time_util
 
+> [!IMPORTANT]
+> Deprecated in favor of [`aiken-extra/test_kit`](https://github.com/aiken-extra/test_kit)
+
 A utility library to help comparing and mocking time intervals.
 
-| ℹ️  | Package info    | aiken-extra/time_util v6.220.202501 | 🐞  |
-| --- | --------------- | ----------------------------------- | --- |
-| 🟢  | **Depends on**  | **aiken-lang/stdlib v2.2.0**        | ✔️  |
-| 🟢  | **Tested with** | **aiken v1.1.9**                    | ✔️  |
+| ℹ️  | Package info    | aiken-extra/time_util v6.220.202501                                                      | 🐞  |
+| --- | --------------- | ---------------------------------------------------------------------------------------- | --- |
+| 🟢  | **Depends on**  | [**aiken-lang/stdlib v2.2.0**](https://github.com/aiken-lang/stdlib/releases/tag/v2.2.0) | ✅  |
+| 🟢  | **Tested with** | [**aiken v1.1.9**](https://github.com/aiken-lang/aiken/releases/tag/v1.1.9)              | ✅  |
 
 ## Get the latest **block-time**, and run `aiken check`
 

@@ -120,13 +120,13 @@
       <h2>
         <a href="./">time_util</a>
         <span id="project-version">
-          <span>6.220.202412 </span>
+          <span>6.220.202501 </span>
         </span>
         <script>
           "use strict";
 
           if ("undefined" !== typeof versionNodes) {
-            const currentVersion = "v6.220.202412";
+            const currentVersion = "v6.220.202501";
             if (! versionNodes.find(element => element.version === currentVersion)) {
               versionNodes.unshift({ version: currentVersion, url: "#" });
             }
@@ -265,10 +265,13 @@
       <main class="content">
         
 <h1>time_util</h1>
+<blockquote class="markdown-alert-important">
+<p>Deprecated in favor of <a href="https://github.com/aiken-extra/test_kit"><code>aiken-extra/test_kit</code></a></p>
+</blockquote>
 <p>A utility library to help comparing and mocking time intervals.</p>
-<table><thead><tr><th>ℹ️</th><th>Package info</th><th>aiken-extra/time_util v6.220.202412</th><th>🐞</th></tr></thead><tbody>
-<tr><td>🟢</td><td><strong>Depends on</strong></td><td><strong>aiken-lang/stdlib v2.2.0</strong></td><td>✔️</td></tr>
-<tr><td>🟢</td><td><strong>Tested with</strong></td><td><strong>aiken v1.1.9</strong></td><td>✔️</td></tr>
+<table><thead><tr><th>ℹ️</th><th>Package info</th><th>aiken-extra/time_util v6.220.202501</th><th>🐞</th></tr></thead><tbody>
+<tr><td>🟢</td><td><strong>Depends on</strong></td><td><a href="https://github.com/aiken-lang/stdlib/releases/tag/v2.2.0"><strong>aiken-lang/stdlib v2.2.0</strong></a></td><td>✅</td></tr>
+<tr><td>🟢</td><td><strong>Tested with</strong></td><td><a href="https://github.com/aiken-lang/aiken/releases/tag/v1.1.9"><strong>aiken v1.1.9</strong></a></td><td>✅</td></tr>
 </tbody></table>
 <h2>Get the latest <strong>block-time</strong>, and run <code>aiken check</code></h2>
 <p>You can have a real latest block-time value when running tests!</p>
@@ -419,9 +422,9 @@ trace config.now
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="./js/lunr.min.js?v=1.1.9"></script>
-    <script src="./js/index.js?v=1735208398"></script>
+    <script src="./js/index.js?v=1736322573"></script>
     <!-- Load the search index using JSONP to avoid CORS issues -->
-    <script src="./search-data.js?v=1735208398"></script>
+    <script src="./search-data.js?v=1736322573"></script>
     <script>
       void function() {
         if (typeof tippy !== "undefined") {
